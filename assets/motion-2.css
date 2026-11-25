@@ -260,6 +260,35 @@
   }
 }
 
+/* Wall of Excellence: the results slide right to left in a loop (Allen, 25 Nov 2026).
+   The track holds the set twice and moves by exactly one set (-50%), so the
+   joint is invisible. About 41px a second: --bfp-marquee-n (the number of
+   cards in one set) x 5.5s. Point at it, hold it, or tab to it to stop it.
+   Needs no scroll-timeline support, so it sits outside the @supports block. */
+@keyframes bfp-marquee { to { transform: translate3d(-50%, 0, 0); } }
+@media (prefers-reduced-motion: no-preference) {
+  .rail {
+    overflow: hidden; scroll-snap-type: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 var(--bfp-fade, 64px), #000 calc(100% - var(--bfp-fade, 64px)), transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 var(--bfp-fade, 64px), #000 calc(100% - var(--bfp-fade, 64px)), transparent);
+  }
+  .rail-track { width: max-content; animation: bfp-marquee calc(var(--bfp-marquee-n, 13) * 5.5s) linear infinite; }
+  .rail-set { padding-right: 16px; }
+  .rail-set[aria-hidden] { display: flex; }
+  .rail:active .rail-track, .rail:focus-visible .rail-track { animation-play-state: paused; }
+  /* "Swipe or scroll sideways" is not true while the row moves by itself.
+     The line stays for people with reduced motion, where the rail scrolls by hand. */
+  .rail-foot p { display: none; }
+  .rail-foot { margin-top: 36px; }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .rail:hover .rail-track { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: no-preference) and (max-width: 899px) {
+  .rail { --bfp-fade: 28px; }
+  .rail-foot { margin-top: 28px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
