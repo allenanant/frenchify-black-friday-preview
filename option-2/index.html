@@ -75,7 +75,7 @@ svg{flex-shrink:0}
 .cta:hover .cta-arrow{transform:translateX(2px)}
 
 /* ---------- Header + hero ---------- */
-.hero-sec{padding-bottom:80px}
+.hero-sec{padding-bottom:72px}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:30px 0 26px;border-bottom:1px solid rgba(233,201,119,.18)}
 .topbar img{width:114px;height:auto}
 .topbar p{font:500 14px/18px var(--inter);color:rgba(247,248,250,.7);text-align:right}
@@ -92,10 +92,10 @@ svg{flex-shrink:0}
 .price-note span{font:600 15px/18px var(--inter);color:var(--ink)}
 
 /* Event ticket */
-.ticket-stage{position:relative;flex:0 0 470px;height:680px}
+.ticket-stage{position:relative;flex:0 0 430px;display:flex;justify-content:flex-end}
 .ticket{
-  position:absolute;left:30px;top:40px;width:400px;display:flex;flex-direction:column;overflow:hidden;
-  transform:rotate(-8deg);transform-origin:0 0;border-radius:28px;border:1px solid rgba(217,178,84,.55);
+  position:relative;width:400px;display:flex;flex-direction:column;overflow:hidden;
+  border-radius:28px;border:1px solid rgba(217,178,84,.55);
   background:rgba(14,11,6,.62);-webkit-backdrop-filter:blur(26px);backdrop-filter:blur(26px);
   box-shadow:0 40px 100px -30px rgba(4,3,2,.85);
 }
@@ -124,30 +124,32 @@ svg{flex-shrink:0}
 .t-free{font:700 46px/50px var(--sora);letter-spacing:-.045em;color:var(--gold)}
 .t-india{display:flex;flex-direction:column;align-items:flex-end;gap:4px;text-align:right}
 
-/* Proof bar */
-.proof{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:56px;padding-top:26px;border-top:1px solid rgba(217,178,84,.2)}
-.proof-quote{display:flex;align-items:center;gap:18px;flex:0 1 620px;min-width:0}
-.proof-quote img{width:60px;height:60px;border-radius:999px;object-fit:cover;flex-shrink:0}
-.proof-quote blockquote{font:500 18px/26px var(--sora);letter-spacing:-.01em;color:var(--ink)}
-.proof-quote figcaption{margin-top:4px;font:500 14px/18px var(--inter);color:var(--ink-60)}
-.proof-certs{display:flex;align-items:center;gap:16px;flex-shrink:0}
-.proof-thumbs{display:flex;gap:8px}
-.proof-thumbs img{width:82px;height:69px;border-radius:8px;object-fit:cover;background:var(--ink)}
-.proof-count strong{display:block;font:600 22px/28px var(--sora);letter-spacing:-.02em;color:var(--ink)}
-.proof-count span{display:block;margin-top:2px;font:500 14px/18px var(--inter);color:var(--ink-60)}
-
-/* ---------- S1 · How to get the offer ---------- */
-.s-offer{padding:64px 0 136px}
-.s-offer .wrap{display:flex;flex-direction:column;gap:64px}
-.steps{position:relative;display:flex;gap:40px}
-.steps::before{content:"";position:absolute;left:8px;top:8px;right:0;height:1px;background:rgba(217,178,84,.36)}
-.step{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:28px}
-.dot{position:relative;display:flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:999px;border:1px solid var(--gold);background:var(--bg)}
-.dot::after{content:"";width:7px;height:7px;border-radius:999px;background:var(--gold)}
-.step-num{font:700 72px/68px var(--sora);letter-spacing:-.05em;color:var(--gold)}
-.step-body{display:flex;flex-direction:column;gap:10px}
-.step h3{font:600 24px/30px var(--sora);letter-spacing:-.02em}
-.step p{max-width:330px;font-size:17px;line-height:27px;color:var(--ink-72)}
+/* ---------- S1 · At a glance: dates, results, host, offer steps ---------- */
+.s-glance{padding:0 0 136px}
+.g-when{font:500 15px/22px var(--inter);color:var(--ink-72)}
+.g-when .seg{white-space:nowrap}
+.g-start{color:var(--gold);font-weight:600}
+.g-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.g-proof{min-height:240px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:30px 32px;background:var(--card);border:1px solid rgba(217,178,84,.2);border-radius:20px}
+.g-proof-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.g-num{font:600 44px/46px var(--sora);letter-spacing:-.04em;color:var(--ink)}
+.g-label{font:500 14px/18px var(--inter);color:var(--ink-72);text-align:right}
+.g-fan{position:relative;height:120px;flex-shrink:0}
+.g-fan img{position:absolute;width:min(128px,29%);height:auto;aspect-ratio:128/107;object-fit:cover;border:3px solid rgba(247,248,250,.9);border-radius:12px;background:var(--ink);transform-origin:0 0}
+.g-fan img:nth-child(1){left:0;top:14px;transform:rotate(-6deg)}
+.g-fan img:nth-child(2){left:23%;top:4px;transform:rotate(-2deg)}
+.g-fan img:nth-child(3){left:46%;top:8px;transform:rotate(3deg)}
+.g-fan img:nth-child(4){left:69%;top:14px;transform:rotate(7deg)}
+.g-host{min-height:240px;display:grid;grid-template-columns:160px minmax(0,1fr);grid-template-rows:1fr auto auto auto 1fr;grid-template-areas:"photo ." "photo label" "photo quote" "photo sub" "photo .";column-gap:26px;align-items:start;padding:24px 32px 24px 24px;background:#1C170F;border:1px solid rgba(217,178,84,.14);border-radius:36px}
+.g-photo{grid-area:photo;align-self:center;width:160px;height:182px;object-fit:cover;object-position:50% 20%;border-radius:20px}
+.g-host-label{grid-area:label;font:600 12px/16px var(--inter);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-60)}
+.g-quote{grid-area:quote;margin-top:10px;font:500 22px/30px var(--sora);letter-spacing:-.02em;color:var(--ink)}
+.g-sub{grid-area:sub;margin-top:10px;font:400 14px/18px var(--inter);color:var(--ink-60)}
+.g-offer{margin-top:16px;padding:10px 4px 0;display:flex;align-items:center;flex-wrap:wrap;gap:12px 18px}
+.g-offer-title{font:600 17px/22px var(--sora);color:var(--gold)}
+.g-steps{display:flex;align-items:center;flex-wrap:wrap;gap:12px 18px}
+.g-steps li{display:flex;align-items:center;gap:18px;font:500 16px/20px var(--inter);color:var(--ink)}
+.g-steps li+li::before{content:"";width:18px;height:18px;flex-shrink:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F7F8FA' stroke-opacity='.45' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/18px 18px no-repeat}
 
 /* ---------- S2 · Pain ---------- */
 .s-pain{padding:24px 0 140px}
@@ -335,13 +337,23 @@ svg{flex-shrink:0}
 /* ================= Responsive ================= */
 
 /* Narrow desktop and tablet: the hero, benefits and final columns stack. */
+@media (max-width:1299px){
+  .g-host{grid-template-columns:132px minmax(0,1fr);column-gap:22px}
+  .g-photo{width:132px;height:160px}
+  .g-quote{font-size:20px;line-height:28px}
+}
+
 @media (max-width:1179px){
+  .g-grid{grid-template-columns:minmax(0,1fr)}
+  .g-host{grid-template-columns:160px minmax(0,1fr);column-gap:26px}
+  .g-photo{width:160px;height:182px}
+  .g-quote{font-size:22px;line-height:30px}
   .hero{flex-direction:column;align-items:stretch;gap:24px;padding-top:56px}
   .hero-copy{flex:none}
   .bf-word{font-size:clamp(56px,15.4vw,100px)}
   .hero h1{font-size:clamp(30px,5.8vw,52px)}
   .ticket-stage{flex:none;height:auto;display:flex;justify-content:center;padding:40px 0 24px}
-  .ticket{position:relative;left:auto;top:auto;width:min(100%,400px);transform:rotate(-4deg);transform-origin:50% 50%}
+  .ticket{position:relative;left:auto;top:auto;width:min(100%,400px);transform:none}
   .benefits{flex-direction:column;gap:32px}
   .benefits h3{flex:none}
   .benefit-grid{flex:none;width:100%;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}
@@ -363,17 +375,7 @@ svg{flex-shrink:0}
     var(--bg)}
   .h2{font-size:40px;line-height:46px;letter-spacing:-.03em}
   .s-final .h2{font-size:44px;line-height:50px}
-  .proof{flex-direction:column;align-items:flex-start;gap:24px;margin-top:40px}
-  .proof-quote{flex:none}
-
-  .s-offer{padding:56px 0 96px}
-  .s-offer .wrap{gap:44px}
-  .steps{flex-direction:column;gap:40px}
-  .steps::before{left:8px;top:8px;bottom:8px;right:auto;width:1px;height:auto}
-  .step{display:grid;grid-template-columns:17px minmax(0,1fr);column-gap:22px;row-gap:14px;flex:none}
-  .dot{grid-row:1;grid-column:1;margin-top:20px}
-  .step-num{grid-row:1;grid-column:2;font-size:56px;line-height:56px}
-  .step-body{grid-row:2;grid-column:2}
+  .s-glance{padding:0 0 96px}
 
   .s-pain{padding:0 0 96px}
   .s-pain .wrap{gap:40px}
@@ -447,7 +449,7 @@ svg{flex-shrink:0}
   .rail-foot{align-items:stretch}
   .price-note{flex-direction:row;align-items:baseline;gap:10px}
   .ticket-stage{padding:32px 0 8px}
-  .ticket{width:min(100%,360px);transform:rotate(-2deg)}
+  .ticket{width:min(100%,360px);transform:none}
   .ticket-media{padding:16px 16px 0}
   .t-info{padding:18px 20px 0}
   .t-title{font-size:24px;line-height:29px}
@@ -456,15 +458,21 @@ svg{flex-shrink:0}
   .t-stub{padding:16px 20px 20px}
   .t-free{font-size:40px;line-height:44px}
   .t-india .t-val{font-size:14px}
-  .proof-quote{align-items:flex-start;gap:14px}
-  .proof-quote img{width:52px;height:52px}
-  .proof-quote blockquote{font-size:17px;line-height:25px}
-  .proof-thumbs img{width:72px;height:60px}
-  .proof-certs{flex-wrap:wrap;gap:14px}
-
-  .s-offer{padding-top:0;padding-bottom:80px}
-  .step h3{font-size:22px;line-height:28px}
-  .step p{font-size:16px;line-height:26px}
+  .s-glance{padding-bottom:80px}
+  .g-grid{gap:12px;margin-top:12px}
+  .g-proof{padding:24px 20px 22px}
+  .g-num{font-size:40px;line-height:44px}
+  .g-fan{height:108px}
+  .g-fan img{border-width:2px;border-radius:10px}
+  .g-host{grid-template-columns:84px minmax(0,1fr);grid-template-rows:1fr auto auto 1fr auto;grid-template-areas:"photo ." "photo label" "photo sub" "photo ." "quote quote";column-gap:16px;padding:20px;border-radius:28px}
+  .g-photo{width:84px;height:96px;border-radius:16px}
+  .g-host-label{letter-spacing:.08em}
+  .g-quote{margin-top:18px;font-size:19px;line-height:27px}
+  .g-sub{margin-top:6px}
+  .g-offer{flex-direction:column;align-items:flex-start;gap:10px;margin-top:24px;padding:0}
+  .g-steps{flex-direction:column;align-items:flex-start;gap:6px}
+  .g-steps li+li{flex-direction:column;align-items:flex-start;gap:6px}
+  .g-steps li+li::before{transform:rotate(90deg)}
 
   .s-pain,.s-solution,.s-wall,.s-workshop,.s-vyom,.s-includes,.s-videos,.s-faq,.s-final{padding-bottom:80px}
   .problem h3{font-size:24px;line-height:30px}
@@ -615,60 +623,43 @@ svg{flex-shrink:0}
         </div>
       </div>
 
-      <div class="proof">
-        <figure class="proof-quote">
-          <img src="../assets/img/vyom-face.webp" width="240" height="240" alt="Vyom Sharma, the workshop host" loading="lazy" decoding="async">
-          <div>
-            <blockquote>"In just 8 months, I went from zero to CLB 7 and added 62 points to my CRS score."</blockquote>
-            <figcaption>Vyom Sharma, your host. PR invitation in November 2022.</figcaption>
-          </div>
-        </figure>
-        <div class="proof-certs">
-          <div class="proof-thumbs">
-            <img src="../assets/img/result-1.webp" width="760" height="637" alt="" loading="lazy" decoding="async">
-            <img src="../assets/img/result-2.webp" width="760" height="637" alt="" loading="lazy" decoding="async">
-            <img src="../assets/img/result-3.webp" width="760" height="637" alt="" loading="lazy" decoding="async">
-          </div>
-          <p class="proof-count"><strong>150+</strong> <span>verified TEF/TCF results</span></p>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- S1 · How to get the offer -->
-  <section class="s-offer" aria-labelledby="offer-title">
+  <!-- S1 · At a glance: dates, results, host, offer steps -->
+  <section class="s-glance" aria-label="Workshop dates, results and the Black Friday offer">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Black Friday 2026</p>
-        <h2 class="h2" id="offer-title">How to get the Black Friday offer</h2>
-        <p class="lead">Vyom shows the Black Friday offer live in the workshop. Only workshop guests get it.</p>
+      <p class="g-when"><span class="seg g-start" data-countdown="2026-11-29T01:00:00Z">Starts in <span data-cd="phrase">3 days, 13 hours</span></span>&nbsp;· <span class="seg">Sat 28 Nov, 8:00 PM Montreal</span>&nbsp;· <span class="seg">Sun 29 Nov, 6:30 AM in India</span></p>
+
+      <div class="g-grid">
+        <div class="g-proof">
+          <div class="g-proof-top">
+            <p class="g-num">150+</p>
+            <p class="g-label">Verified TEF/TCF results</p>
+          </div>
+          <div class="g-fan" aria-hidden="true">
+            <img src="../assets/img/result-1.webp" width="760" height="637" alt="" loading="lazy" decoding="async">
+            <img src="../assets/img/result-2.webp" width="760" height="637" alt="" loading="lazy" decoding="async">
+            <img src="../assets/img/result-3.webp" width="760" height="637" alt="" loading="lazy" decoding="async">
+            <img src="../assets/img/result-4.webp" width="760" height="637" alt="" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="g-host">
+          <img class="g-photo" src="../assets/img/vyom-portrait.webp" width="760" height="688" alt="Vyom Sharma, the workshop host, in a dark jacket and a blue scarf" loading="lazy" decoding="async">
+          <p class="g-host-label">Your host · Vyom Sharma</p>
+          <blockquote class="g-quote"><p>"In just 8 months, I went from zero to CLB 7 and added 62 points to my CRS score."</p></blockquote>
+          <p class="g-sub">PR invitation in November 2022</p>
+        </div>
       </div>
-      <ol class="steps">
-        <li class="step">
-          <span class="dot" aria-hidden="true"></span>
-          <span class="step-num" aria-hidden="true">01</span>
-          <div class="step-body">
-            <h3>Reserve your free spot</h3>
-            <p>Complete the short form. The workshop is free.</p>
-          </div>
-        </li>
-        <li class="step">
-          <span class="dot" aria-hidden="true"></span>
-          <span class="step-num" aria-hidden="true">02</span>
-          <div class="step-body">
-            <h3>Join the live workshop</h3>
-            <p>Sat 28 Nov, 8:00 PM, Montreal time. Join online from anywhere.</p>
-          </div>
-        </li>
-        <li class="step">
-          <span class="dot" aria-hidden="true"></span>
-          <span class="step-num" aria-hidden="true">03</span>
-          <div class="step-body">
-            <h3>Get the Black Friday offer</h3>
-            <p>Vyom gives the offer to workshop guests in the live session.</p>
-          </div>
-        </li>
-      </ol>
+
+      <div class="g-offer">
+        <p class="g-offer-title">How to get the Black Friday offer:</p>
+        <ol class="g-steps">
+          <li>Reserve your free spot</li>
+          <li>Join the live workshop on 28 November</li>
+          <li>Get the offer from Vyom, live</li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -822,7 +813,7 @@ svg{flex-shrink:0}
   <section class="s-vyom" aria-labelledby="vyom-title">
     <div class="wrap">
       <div class="vyom-photo">
-        <img src="../assets/img/vyom-portrait.webp" width="760" height="695" alt="Vyom Sharma smiling, in a winter jacket and blue scarf" loading="lazy" decoding="async">
+        <img src="../assets/img/vyom-portrait.webp" width="760" height="688" alt="Vyom Sharma smiling, in a winter jacket and blue scarf" loading="lazy" decoding="async">
       </div>
       <div class="story">
         <h2 class="h2" id="vyom-title">Meet Vyom: He Actually Walked This Path</h2>
