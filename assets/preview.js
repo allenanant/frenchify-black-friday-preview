@@ -29,7 +29,16 @@
       var d = Math.floor(t / 86400), h = Math.floor((t % 86400) / 3600),
           m = Math.floor((t % 3600) / 60), s = t % 60;
       var set = function (k, v) {
-        root.querySelectorAll('[data-cd="' + k + '"]').forEach(function (el) { el.textContent = v; });
+        root.querySelectorAll('[data-cd="' + k + '"]').forEach(function (el) {
+          if (el.textContent === v) return;
+          el.textContent = v;
+          // Big countdown digits drop in when they change (motion-2.css).
+          if (el.classList.contains('cd-num')) {
+            el.classList.remove('bfp-tick');
+            void el.offsetWidth;
+            el.classList.add('bfp-tick');
+          }
+        });
       };
       set('d', pad(d)); set('h', pad(h)); set('m', pad(m)); set('s', pad(s));
       var phrase;

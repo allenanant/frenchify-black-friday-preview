@@ -136,10 +136,10 @@ svg{flex-shrink:0}
 .g-label{font:500 14px/18px var(--inter);color:var(--ink-72);text-align:right}
 .g-fan{position:relative;height:120px;flex-shrink:0}
 .g-fan img{position:absolute;width:min(128px,29%);height:auto;aspect-ratio:128/107;object-fit:cover;border:3px solid rgba(247,248,250,.9);border-radius:12px;background:var(--ink);transform-origin:0 0}
-.g-fan img:nth-child(1){left:0;top:14px;transform:rotate(-6deg)}
-.g-fan img:nth-child(2){left:23%;top:4px;transform:rotate(-2deg)}
-.g-fan img:nth-child(3){left:46%;top:8px;transform:rotate(3deg)}
-.g-fan img:nth-child(4){left:69%;top:14px;transform:rotate(7deg)}
+.g-fan img:nth-child(1){left:0;top:14px;rotate:-6deg}
+.g-fan img:nth-child(2){left:23%;top:4px;rotate:-2deg}
+.g-fan img:nth-child(3){left:46%;top:8px;rotate:3deg}
+.g-fan img:nth-child(4){left:69%;top:14px;rotate:7deg}
 .g-host{min-height:240px;display:grid;grid-template-columns:160px minmax(0,1fr);grid-template-rows:1fr auto auto auto 1fr;grid-template-areas:"photo ." "photo label" "photo quote" "photo sub" "photo .";column-gap:26px;align-items:start;padding:24px 32px 24px 24px;background:#1C170F;border:1px solid rgba(217,178,84,.14);border-radius:36px}
 .g-photo{grid-area:photo;align-self:center;width:160px;height:182px;object-fit:cover;object-position:50% 20%;border-radius:20px}
 .g-host-label{grid-area:label;font:600 12px/16px var(--inter);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-60)}
@@ -542,6 +542,7 @@ svg{flex-shrink:0}
   *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;scroll-behavior:auto !important}
 }
 </style>
+<link rel="stylesheet" href="../assets/motion-2.css">
 </head>
 <body data-option="2">
 
@@ -579,7 +580,7 @@ svg{flex-shrink:0}
       <div class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Free live workshop · Limited seats</p>
-          <p class="bf-word">Black Friday</p>
+          <p class="bf-word"><span class="w">Black</span> <span class="w">Friday</span></p>
           <div class="hero-text">
             <h1 id="hero-title">French for Canadian PR:<br> Live Assessment Workshop</h1>
             <p class="lead">Discover in 90 minutes if French is your fastest path to Canadian PR. Take a live assessment and get your personalized French learning strategy - completely free.</p>
@@ -634,7 +635,7 @@ svg{flex-shrink:0}
       <div class="g-grid">
         <div class="g-proof">
           <div class="g-proof-top">
-            <p class="g-num">150+</p>
+            <p class="g-num"><span class="g-num-txt">150+</span></p>
             <p class="g-label">Verified TEF/TCF results</p>
           </div>
           <div class="g-fan" aria-hidden="true">
@@ -726,7 +727,7 @@ svg{flex-shrink:0}
       </div>
       <div class="numbers">
         <h3>The Numbers Don’t Lie:</h3>
-        <p class="stat-line">50+ <span class="u">CRS Points</span><span class="sep"> / </span>8-12 <span class="u">Months to PR</span><span class="sep"> / </span>95% <span class="u">Less Competition</span><span class="sep"> / </span>Proven <span class="u">Pathway</span></p>
+        <p class="stat-line"><span class="st">50+ <span class="u">CRS Points</span></span><span class="sep"> / </span><span class="st">8-12 <span class="u">Months to PR</span></span><span class="sep"> / </span><span class="st">95% <span class="u">Less Competition</span></span><span class="sep"> / </span><span class="st">Proven <span class="u">Pathway</span></span></p>
       </div>
     </div>
   </section>
@@ -838,12 +839,12 @@ svg{flex-shrink:0}
             <p>Sat 28 Nov · 8:00 PM Montreal · Online</p>
           </div>
           <ul class="r-list">
-            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>Live 20-question Assessment</strong><span>Know your exact French PR potential</span></span></li>
-            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>Personalized Score Interpretation</strong><span>What your results mean for your timeline</span></span></li>
-            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>Custom Learning Roadmap</strong><span>Step-by-step plan based on YOUR situation</span></span></li>
-            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>Latest Immigration Updates</strong><span>Francophone opportunities most people miss</span></span></li>
-            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>ROI Analysis Worksheet</strong><span>Compare French investment vs waiting</span></span></li>
-            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>Exclusive Discount Codes</strong><span>Up to $100 CAD off programs</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="r-text"><strong>Live 20-question Assessment</strong><span>Know your exact French PR potential</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="r-text"><strong>Personalized Score Interpretation</strong><span>What your results mean for your timeline</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="r-text"><strong>Custom Learning Roadmap</strong><span>Step-by-step plan based on YOUR situation</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="r-text"><strong>Latest Immigration Updates</strong><span>Francophone opportunities most people miss</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="r-text"><strong>ROI Analysis Worksheet</strong><span>Compare French investment vs waiting</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="r-text"><strong>Exclusive Discount Codes</strong><span>Up to $100 CAD off programs</span></span></li>
           </ul>
         </div>
         <div class="r-perf" aria-hidden="true"><i></i><i></i></div>
@@ -962,5 +963,6 @@ svg{flex-shrink:0}
 </div>
 
 <script src="../assets/preview.js" defer></script>
+<script src="../assets/motion.js" defer></script>
 </body>
 </html>

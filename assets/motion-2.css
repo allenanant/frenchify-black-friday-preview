@@ -1,0 +1,265 @@
+/* =====================================================================
+   Motion layer for Option 2 (Gold Ticket).
+
+   Rules this file keeps:
+   - The base styles are always the still, finished design. Every entrance
+     is a `from` keyframe with fill-mode both, so if an animation never runs
+     (old browser, reduced motion) the page looks exactly as approved.
+   - Scroll reveals use CSS scroll-driven animations: no JavaScript, and they
+     run on the compositor, so they stay smooth on budget Android phones.
+     Browsers without support get the still page.
+   - Only transform, opacity, clip-path and filter move. Nothing animates
+     layout.
+   - prefers-reduced-motion: no motion at all.
+   ===================================================================== */
+
+@property --bfp-n { syntax: "<integer>"; inherits: false; initial-value: 0; }
+
+:root {
+  --ease-expo: cubic-bezier(.16, 1, .3, 1);
+  --ease-quart: cubic-bezier(.25, 1, .5, 1);
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes bfp-fade { from { opacity: 0; } }
+@keyframes bfp-rise { from { opacity: 0; transform: translateY(28px); } }
+@keyframes bfp-up { from { opacity: 0; transform: translateY(44px); } }
+@keyframes bfp-word { from { opacity: 0; transform: translateY(.42em); filter: blur(14px); } }
+@keyframes bfp-ticket { from { opacity: 0; transform: perspective(1200px) translateY(90px) rotateX(18deg) scale(.95); } }
+@keyframes bfp-glint { from { transform: translateX(-110%) skewX(-14deg); } to { transform: translateX(175%) skewX(-14deg); } }
+@keyframes bfp-strike { from { transform: scaleX(0); } }
+@keyframes bfp-stamp { from { opacity: 0; transform: scale(1.4) rotate(-6deg); } }
+@keyframes bfp-breathe { from { opacity: .35; transform: scale(.92); } to { opacity: 1; transform: scale(1.06); } }
+@keyframes bfp-live { from { box-shadow: 0 0 0 0 rgba(217, 178, 84, .55); } to { box-shadow: 0 0 0 9px rgba(217, 178, 84, 0); } }
+@keyframes bfp-ring { from { opacity: .7; transform: scale(1); } to { opacity: 0; transform: scale(1.55); } }
+@keyframes bfp-digit { from { opacity: .15; transform: translateY(-.28em); } }
+@keyframes bfp-ans { from { opacity: 0; transform: translateY(-8px); } }
+@keyframes bfp-par-up { to { translate: 0 -70px; } }
+@keyframes bfp-par-down { to { translate: 0 36px; } }
+@keyframes bfp-count { from { --bfp-n: 0; opacity: 0; } 25% { opacity: 1; } }
+@keyframes bfp-deal { from { opacity: 0; transform: translate(var(--bfp-dx, 0), 26px) rotate(var(--bfp-dr, 0deg)); } }
+@keyframes bfp-photo { from { clip-path: inset(22% 22% 22% 22% round 16px); transform: scale(1.12); } to { clip-path: inset(0 0 0 0 round 16px); } }
+@keyframes bfp-scan { 0% { transform: scaleX(0); opacity: 1; } 75% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+@keyframes bfp-slide { from { opacity: 0; transform: translateX(120px) scale(.94); } }
+@keyframes bfp-line { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes bfp-node {
+  from { border-color: rgba(247, 248, 250, .25); color: var(--ink); background-color: var(--bg); }
+  to { border-color: var(--gold); color: var(--gold); background-color: #241C10; }
+}
+@keyframes bfp-wipe { from { clip-path: inset(14% 10% 14% 10% round 24px); opacity: .2; } to { clip-path: inset(0 0 0 0 round 24px); opacity: 1; } }
+@keyframes bfp-zoom { from { transform: scale(1.14) translateY(-3%); } to { transform: scale(1.02) translateY(3%); } }
+@keyframes bfp-receipt { from { opacity: 0; transform: perspective(1400px) translateY(90px) rotateX(14deg); } }
+@keyframes bfp-pop { from { opacity: 0; transform: scale(.3); } }
+@keyframes bfp-draw { from { stroke-dashoffset: 24; } to { stroke-dashoffset: 0; } }
+@keyframes bfp-scale-in { from { opacity: 0; transform: scale(.92); } }
+@keyframes bfp-zoom-out { from { transform: scale(1.15); } to { transform: scale(1); } }
+@keyframes bfp-grain {
+  0%   { transform: translate3d(0, 0, 0); }
+  12%  { transform: translate3d(-44px, 28px, 0); }
+  25%  { transform: translate3d(52px, -36px, 0); }
+  37%  { transform: translate3d(-20px, -70px, 0); }
+  50%  { transform: translate3d(76px, 34px, 0); }
+  62%  { transform: translate3d(-64px, 50px, 0); }
+  75%  { transform: translate3d(30px, -14px, 0); }
+  87%  { transform: translate3d(-86px, -30px, 0); }
+}
+
+/* ---------- Still styles the motion needs (safe with no motion) ---------- */
+.page { overflow-x: clip; }
+.g-start::before {
+  content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 9px; vertical-align: 2px;
+  border-radius: 999px; background: var(--gold);
+}
+.cta { transition: background-color .16s ease-out, transform .2s var(--ease-quart); }
+.cta:active { transform: scale(.97); }
+.vid img { transition: scale .7s var(--ease-expo); }
+.vid:hover img { scale: 1.04; }
+.play, .play-lg { overflow: visible; }
+.play::after, .play-lg::after {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none;
+  border: 1px solid rgba(247, 248, 250, .55); opacity: 0;
+}
+.playlist img { transition: scale .8s var(--ease-expo); }
+.playlist:hover img { scale: 1.03; }
+.cert { transition: border-color .3s var(--ease-quart); }
+.cert:hover { border-color: rgba(217, 178, 84, .7); }
+
+/* Ticket: a light tilt and a gold glare that follow the pointer (motion.js). */
+.ticket { transition: transform .7s var(--ease-expo); }
+.ticket.is-hover {
+  transform: perspective(1100px) rotateX(var(--bfp-rx, 0deg)) rotateY(var(--bfp-ry, 0deg));
+  transition-duration: .18s;
+}
+.ticket::before {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: inherit;
+  background: radial-gradient(380px circle at var(--bfp-mx, 50%) var(--bfp-my, 0%), rgba(240, 206, 128, .15), rgba(240, 206, 128, 0) 65%);
+  opacity: 0; transition: opacity .45s var(--ease-quart);
+}
+.ticket.is-hover::before { opacity: 1; }
+
+/* Certificates in the results card: they spread when you point at the card. */
+.g-fan { container-type: inline-size; }
+.g-fan img { transition: rotate .55s var(--ease-expo), translate .55s var(--ease-expo); }
+@media (hover: hover) {
+  .g-proof:hover .g-fan img:nth-child(1) { rotate: -10deg; translate: -6px -4px; }
+  .g-proof:hover .g-fan img:nth-child(2) { rotate: -4deg; translate: -2px -9px; }
+  .g-proof:hover .g-fan img:nth-child(3) { rotate: 5deg; translate: 4px -9px; }
+  .g-proof:hover .g-fan img:nth-child(4) { rotate: 11deg; translate: 8px -4px; }
+}
+
+/* ---------- Time-based motion: page load, ambient, feedback ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Living film grain. The layer is larger than the screen and jumps a few
+     times a second, which reads as film, not as movement. */
+  body::before { inset: -150px; animation: bfp-grain 1.1s steps(1, end) infinite; }
+
+  /* The gold light behind the ticket breathes. */
+  .hero-sec { position: relative; }
+  .hero-sec::before {
+    content: ""; position: absolute; z-index: -1; pointer-events: none;
+    width: 1000px; height: 1000px; left: calc(50% + 410px - 500px); top: -358px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(226, 182, 90, .16), rgba(226, 182, 90, .06) 55%, rgba(226, 182, 90, 0));
+    animation: bfp-breathe 7s ease-in-out infinite alternate;
+  }
+
+  /* Hero entrance: one orchestrated sequence, about 1.5 s end to end. */
+  .topbar { animation: bfp-fade .8s var(--ease-quart) both; }
+  .hero .eyebrow { animation: bfp-rise .8s var(--ease-expo) .05s both; }
+  .bf-word .w { display: inline-block; animation: bfp-word 1.1s var(--ease-expo) both; }
+  .bf-word .w:nth-child(1) { animation-delay: .12s; }
+  .bf-word .w:nth-child(2) { animation-delay: .24s; }
+  .hero h1 { animation: bfp-rise .9s var(--ease-expo) .34s both; }
+  .hero .lead { animation: bfp-rise .9s var(--ease-expo) .44s both; }
+  .hero-cta { animation: bfp-rise .9s var(--ease-expo) .54s both; }
+  .price-note s { position: relative; align-self: flex-start; text-decoration: none; }
+  .price-note s::after {
+    content: ""; position: absolute; left: -1px; right: -1px; top: 52%; height: 1px; background: currentColor;
+    transform-origin: left center; animation: bfp-strike .5s var(--ease-quart) 1s both;
+  }
+  .ticket-stage { animation: bfp-ticket 1.3s var(--ease-expo) .3s both; }
+  .ticket::after {
+    content: ""; position: absolute; top: -10%; bottom: -10%; left: 0; width: 60%; z-index: 3; pointer-events: none;
+    background: linear-gradient(90deg, rgba(255, 232, 176, 0), rgba(255, 232, 176, .14) 42%, rgba(255, 240, 205, .26) 50%, rgba(255, 232, 176, .14) 58%, rgba(255, 232, 176, 0));
+    transform: translateX(-110%) skewX(-14deg);
+    animation: bfp-glint 1.6s var(--ease-quart) 1.2s both;
+  }
+  .t-stub s { position: relative; display: inline-block; text-decoration: none; }
+  .t-stub s::after {
+    content: ""; position: absolute; left: -1px; right: -1px; top: 52%; height: 1px; background: currentColor;
+    transform-origin: left center; animation: bfp-strike .55s var(--ease-quart) 1.3s both;
+  }
+  .t-free { transform-origin: left 70%; animation: bfp-stamp .7s var(--ease-expo) 1.5s both; }
+
+  /* "Starts in" is live: the dot pulses. */
+  .g-start::before { animation: bfp-live 1.8s var(--ease-quart) infinite; }
+
+  /* Play buttons answer the pointer with a soft ring. */
+  .vid:hover .play::after, .playlist:hover .play-lg::after { animation: bfp-ring 1.4s var(--ease-quart) infinite; }
+
+  /* Countdown digits drop in when they change (preview.js adds the class). */
+  .cd-num.bfp-tick { display: inline-block; animation: bfp-digit .5s var(--ease-expo); }
+
+  /* FAQ answers slide in when a question opens. */
+  .faq details[open] .ans { animation: bfp-ans .5s var(--ease-expo) both; }
+}
+
+@media (prefers-reduced-motion: no-preference) and (max-width: 899px) {
+  .hero-sec::before { width: 640px; height: 640px; left: calc(82% - 320px); top: 40px; }
+}
+
+/* ---------- Scroll-driven motion ---------- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    /* Generic reveal: rise into place as the element enters the screen. */
+    .g-when, .g-proof, .g-host, .g-offer-title, .g-steps li,
+    .sec-head > *, .problem-head, .problem p, .benefits h3, .benefit, .numbers h3,
+    .pill, .rail-foot, .ws-head > *, .tl-body, .story > *, .s-includes .h2, .r-item,
+    .vid-head > *, .s-faq .h2, .faq details, .s-final .h2, .opt, .final-note, .cd-col > * {
+      animation: bfp-up linear both;
+      animation-timing-function: var(--ease-quart);
+      animation-timeline: view();
+      animation-range: entry 0% cover 26%;
+    }
+    /* Side-by-side items arrive one after the other. */
+    .g-host, .problem p, .benefit:nth-child(even), .cd-col > * { animation-range: entry 8% cover 32%; }
+    .g-steps li:nth-child(2) { animation-range: entry 10% cover 32%; }
+    .g-steps li:nth-child(3) { animation-range: entry 20% cover 38%; }
+
+    /* Hero parallax, on wide screens only (the ticket sits beside the copy). */
+    @media (min-width: 1180px) {
+      .ticket { animation: bfp-par-up linear both; animation-timeline: scroll(root); animation-range: 0px 900px; }
+      .bf-word { animation: bfp-par-down linear both; animation-timeline: scroll(root); animation-range: 0px 900px; }
+    }
+
+    /* 150+ counts up. The real text stays for screen readers. */
+    /* The counter lives on .g-num itself: --bfp-n does not inherit, so the
+       ::before can only read it through the counter. */
+    .g-num { --bfp-n: 150; counter-reset: bfpn var(--bfp-n); font-variant-numeric: tabular-nums; animation: bfp-count linear both; animation-timing-function: var(--ease-quart); animation-timeline: view(); animation-range: entry 30% cover 50%; }
+    .g-num::before { content: counter(bfpn) "+"; content: counter(bfpn) "+" / ""; }
+    .g-num-txt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+    /* The 4 certificates are dealt from one stack into the fan. */
+    .g-fan img { animation: bfp-deal linear both; animation-timing-function: var(--ease-expo); animation-timeline: view(); animation-range: entry 20% cover 48%; }
+    .g-fan img:nth-child(1) { --bfp-dx: 34cqw; --bfp-dr: 6deg; }
+    .g-fan img:nth-child(2) { --bfp-dx: 11cqw; --bfp-dr: 2deg; animation-range: entry 24% cover 50%; }
+    .g-fan img:nth-child(3) { --bfp-dx: -12cqw; --bfp-dr: -3deg; animation-range: entry 28% cover 52%; }
+    .g-fan img:nth-child(4) { --bfp-dx: -35cqw; --bfp-dr: -7deg; animation-range: entry 32% cover 54%; }
+
+    /* Vyom's photo opens from the centre. */
+    .g-photo { animation: bfp-photo linear both; animation-timing-function: var(--ease-expo); animation-timeline: view(); animation-range: entry 10% cover 40%; }
+
+    /* Pain rows: a gold line scans across, then the text lands. */
+    .problem { position: relative; view-timeline: --bfp-pr block; }
+    .problem::before {
+      content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; pointer-events: none;
+      background: linear-gradient(90deg, var(--gold), rgba(217, 178, 84, .15));
+      transform-origin: left center; opacity: 0;
+      animation: bfp-scan linear both; animation-timeline: --bfp-pr; animation-range: entry 5% cover 40%;
+    }
+
+    /* The stat line lights up one figure at a time. */
+    .numbers { view-timeline: --bfp-num block; }
+    .stat-line .st, .stat-line .sep { animation: bfp-fade linear both; animation-timeline: --bfp-num; animation-range: entry 30% cover 40%; }
+    .stat-line .st:nth-child(3), .stat-line .sep:nth-child(2) { animation-range: entry 40% cover 46%; }
+    .stat-line .st:nth-child(5), .stat-line .sep:nth-child(4) { animation-range: entry 50% cover 52%; }
+    .stat-line .st:nth-child(7), .stat-line .sep:nth-child(6) { animation-range: entry 60% cover 58%; }
+
+    /* Wall of Excellence: the certificates slide in from the right. */
+    .s-wall { view-timeline: --bfp-wall block; }
+    .cert, .cert-more { animation: bfp-slide linear both; animation-timing-function: var(--ease-expo); animation-timeline: --bfp-wall; animation-range: entry 25% cover 40%; }
+    .cert:nth-child(2) { animation-range: entry 28% cover 43%; }
+    .cert:nth-child(3) { animation-range: entry 31% cover 46%; }
+    .cert:nth-child(4) { animation-range: entry 34% cover 49%; }
+    .cert:nth-child(5) { animation-range: entry 37% cover 52%; }
+    .cert:nth-child(n+6), .cert-more { animation-range: entry 40% cover 55%; }
+
+    /* Workshop timeline: a gold line connects the steps as you scroll. */
+    .tl-step { view-timeline: --bfp-tl block; }
+    .tl-step:not(:last-child)::after {
+      content: ""; position: absolute; left: 21px; top: 43px; bottom: -48px; width: 1px; pointer-events: none;
+      background: var(--gold); transform-origin: top center;
+      animation: bfp-line linear both; animation-timeline: --bfp-tl; animation-range: cover 35% cover 65%;
+    }
+    .tl-icon { z-index: 1; animation: bfp-node linear both; animation-timeline: --bfp-tl; animation-range: cover 25% cover 38%; }
+
+    /* Meet Vyom: the photo opens, then drifts slowly as you scroll. */
+    .vyom-photo { animation: bfp-wipe linear both; animation-timing-function: var(--ease-quart); animation-timeline: view(); animation-range: entry 0% cover 40%; }
+    .vyom-photo img { animation: bfp-zoom linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
+
+    /* Includes: the receipt tips up into place and each line ticks off. */
+    .receipt { animation: bfp-receipt linear both; animation-timing-function: var(--ease-expo); animation-timeline: view(); animation-range: entry 0% cover 30%; }
+    .r-item { view-timeline: --bfp-ri block; }
+    .r-check { animation: bfp-pop linear both; animation-timing-function: var(--ease-expo); animation-timeline: --bfp-ri; animation-range: entry 40% cover 55%; }
+    .r-check path { stroke-dasharray: 24; animation: bfp-draw linear both; animation-timeline: --bfp-ri; animation-range: entry 70% cover 60%; }
+    .r-free { transform-origin: left 70%; animation: bfp-stamp linear both; animation-timing-function: var(--ease-expo); animation-timeline: view(); animation-range: entry 40% cover 45%; }
+
+    /* Student videos: the player grows in and its poster settles. */
+    .playlist { animation: bfp-scale-in linear both; animation-timing-function: var(--ease-quart); animation-timeline: view(); animation-range: entry 0% cover 35%; }
+    .playlist img { animation: bfp-zoom-out linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
