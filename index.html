@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#070A12">
+  <title>Black Friday preview · Frenchify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070A12;
+      --ink: #F7F8FA;
+      --ink-2: rgba(247, 248, 250, 0.72);
+      --ink-3: rgba(247, 248, 250, 0.56);
+      --line: rgba(247, 248, 250, 0.12);
+      --gold: #D9B254;
+      --navy: #193357;
+      --blue: #2563EB;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(60% 50% at 12% 0%, rgba(37, 99, 235, 0.28), transparent 70%),
+        radial-gradient(50% 45% at 95% 30%, rgba(217, 178, 84, 0.16), transparent 70%),
+        var(--bg);
+      color: var(--ink);
+      font: 400 16px/1.6 Inter, system-ui, sans-serif;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url(assets/grain.svg);
+      opacity: 0.14;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wrap { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 40px 24px 96px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    header img { height: 32px; width: auto; display: block; }
+    .tag {
+      font: 600 12px/1 Inter, system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--bg); background: var(--gold); padding: 7px 11px; border-radius: 8px; white-space: nowrap;
+    }
+    h1 {
+      font: 700 clamp(34px, 5.4vw, 64px)/1.04 Sora, Inter, sans-serif; letter-spacing: -0.04em;
+      margin: 72px 0 0; max-width: 16ch;
+    }
+    .lead { margin: 20px 0 0; max-width: 56ch; font-size: 18px; color: var(--ink-2); }
+    .note {
+      margin: 28px 0 0; display: inline-flex; gap: 10px; align-items: flex-start; max-width: 62ch;
+      padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; color: var(--ink-2); font-size: 15px;
+    }
+    .note strong { color: var(--ink); font-weight: 600; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 56px; }
+    .card {
+      display: flex; flex-direction: column; text-decoration: none; color: inherit;
+      border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: rgba(247, 248, 250, 0.03);
+      transition: border-color 160ms ease-out, transform 160ms ease-out;
+    }
+    .card:hover { border-color: rgba(247, 248, 250, 0.32); transform: translateY(-2px); }
+    .card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+    .card-body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 6px; }
+    .num { font: 600 13px/1 Inter, system-ui, sans-serif; color: var(--gold); letter-spacing: 0.02em; }
+    .card h2 { margin: 4px 0 0; font: 600 24px/1.2 Sora, Inter, sans-serif; letter-spacing: -0.02em; }
+    .card p { margin: 0; color: var(--ink-2); font-size: 15px; }
+    .open { margin-top: 12px; font-weight: 600; font-size: 15px; color: var(--ink); }
+    .open span { color: var(--gold); }
+    footer { margin-top: 64px; color: var(--ink-3); font-size: 14px; }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; gap: 18px; }
+      h1 { margin-top: 48px; }
+      .lead { font-size: 17px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="assets/img/logo-light.webp" alt="Frenchify with Vyom" width="114" height="32">
+      <span class="tag">Black Friday preview</span>
+    </header>
+
+    <main>
+      <h1>Black Friday webinar page: 3 designs</h1>
+      <p class="lead">Open each design. Look at it on your phone and on a computer. Then tell us which design you want.</p>
+      <p class="note"><span><strong>This is a preview.</strong> It is not the live website. The buttons do not open the sign-up form.</span></p>
+
+      <div class="grid">
+        <a class="card" href="option-1/">
+          <img src="assets/img/thumb-1.webp" alt="Design 1 preview: black page with soft blue and gold light" width="960" height="600">
+          <div class="card-body">
+            <span class="num">Option 1</span>
+            <h2>Midnight Glass</h2>
+            <p>Calm and premium. Soft blue and gold light with frosted glass.</p>
+            <span class="open">Open the design <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="card" href="option-2/">
+          <img src="assets/img/thumb-2.webp" alt="Design 2 preview: warm black page with a gold Black Friday title and an event ticket" width="960" height="600">
+          <div class="card-body">
+            <span class="num">Option 2</span>
+            <h2>Gold Ticket</h2>
+            <p>The boldest Black Friday look. A gold title and a glass event ticket.</p>
+            <span class="open">Open the design <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+        <a class="card" href="option-3/">
+          <img src="assets/img/thumb-3.webp" alt="Design 3 preview: navy page with the video, results and Vyom's story near the top" width="960" height="600">
+          <div class="card-body">
+            <span class="num">Option 3</span>
+            <h2>Night Ocean</h2>
+            <p>Clear and calm. The results, the dates and Vyom's story show first.</p>
+            <span class="open">Open the design <span aria-hidden="true">&rarr;</span></span>
+          </div>
+        </a>
+      </div>
+    </main>
+
+    <footer>Frenchify with Vyom · Black Friday 2026 · Preview only</footer>
+  </div>
+</body>
+</html>

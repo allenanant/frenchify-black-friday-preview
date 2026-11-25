@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0B0906">
+<title>Option 2 · Black Friday preview · Frenchify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Sora:wght@300..800&display=swap">
+<style>
+:root{
+  --bg:#0B0906;
+  --card:#15110B;
+  --ink:#F7F8FA;
+  --ink-76:rgba(247,248,250,.76);
+  --ink-72:rgba(247,248,250,.72);
+  --ink-60:rgba(247,248,250,.6);
+  --ink-56:rgba(247,248,250,.56);
+  --line:rgba(247,248,250,.12);
+  --gold:#D9B254;
+  --gold-soft:#E2C171;
+  --blue:#2563EB;
+  --blue-dark:#1D4ED8;
+  --sora:"Sora",system-ui,sans-serif;
+  --inter:"Inter",system-ui,sans-serif;
+  --gutter:clamp(20px,8.34vw,120px);
+  --edge:max(var(--gutter),calc((100% - 1200px) / 2));
+  --optical:6px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg);color-scheme:dark;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  margin:0;min-height:100vh;color:var(--ink);font-family:var(--inter);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  /* The one warm gold spotlight, behind the hero ticket. */
+  background:
+    radial-gradient(circle 860px at calc(50% + 410px) 230px,
+      rgba(222,176,82,.215) 0%, rgba(222,176,82,.19) 30%, rgba(219,172,80,.112) 56%,
+      rgba(214,166,76,.043) 78%, rgba(214,166,76,0) 100%) no-repeat,
+    var(--bg);
+}
+/* Film grain: one fixed layer under the content, over the light. */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:url(../assets/grain.svg) 0 0/240px 240px repeat;opacity:.4;
+}
+.page{position:relative;z-index:1}
+img{display:block;max-width:100%}
+h1,h2,h3,p,figure,blockquote,ol,ul{margin:0}
+ol,ul{padding:0;list-style:none}
+a{color:inherit}
+button{font:inherit;color:inherit}
+svg{flex-shrink:0}
+.wrap{width:min(1200px,100% - 2 * var(--gutter));margin-inline:auto}
+
+:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px;border-radius:6px}
+.cta:focus-visible,.pill:focus-visible{border-radius:999px}
+
+/* ---------- Shared type ---------- */
+.eyebrow{font:600 13px/16px var(--inter);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.h2{font:600 48px/54px var(--sora);letter-spacing:-.035em;color:var(--ink)}
+.lead{font-size:18px;line-height:29px;color:var(--ink-72);max-width:560px}
+.sec-head{display:flex;flex-direction:column;gap:18px;max-width:900px}
+
+/* ---------- CTA ---------- */
+.cta{
+  display:inline-flex;align-items:center;gap:14px;min-height:62px;padding:8px 8px 8px 28px;border-radius:999px;
+  background:var(--blue);box-shadow:inset 0 1px 0 rgba(247,248,250,.22);color:var(--ink);
+  font:600 17px/22px var(--inter);text-decoration:none;transition:background-color .16s ease-out;
+}
+.cta:hover{background:var(--blue-dark)}
+.cta-arrow{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:999px;background:rgba(247,248,250,.18);transition:transform .16s ease-out}
+.cta:hover .cta-arrow{transform:translateX(2px)}
+
+/* ---------- Header + hero ---------- */
+.hero-sec{padding-bottom:80px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:30px 0 26px;border-bottom:1px solid rgba(233,201,119,.18)}
+.topbar img{width:114px;height:auto}
+.topbar p{font:500 14px/18px var(--inter);color:rgba(247,248,250,.7);text-align:right}
+
+.hero{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:64px}
+.hero-copy{flex:0 1 720px;min-width:0;display:flex;flex-direction:column}
+.bf-word{padding-top:18px;font:700 clamp(84px,7vw,100px)/1 var(--sora);letter-spacing:-.055em;color:var(--gold);white-space:nowrap}
+.hero-text{display:flex;flex-direction:column;gap:18px;padding:22px 0 0 var(--optical)}
+.hero h1{font:600 clamp(44px,3.62vw,52px)/1.115 var(--sora);letter-spacing:-.035em;color:var(--ink)}
+.hero .lead{color:rgba(247,248,250,.7)}
+.hero-cta{display:flex;align-items:center;gap:22px;padding:36px 0 0 var(--optical)}
+.price-note{display:flex;flex-direction:column;gap:2px}
+.price-note s{font:500 14px/18px var(--inter);color:rgba(247,248,250,.5);text-decoration-thickness:1px}
+.price-note span{font:600 15px/18px var(--inter);color:var(--ink)}
+
+/* Event ticket */
+.ticket-stage{position:relative;flex:0 0 470px;height:680px}
+.ticket{
+  position:absolute;left:30px;top:40px;width:400px;display:flex;flex-direction:column;overflow:hidden;
+  transform:rotate(-8deg);transform-origin:0 0;border-radius:28px;border:1px solid rgba(217,178,84,.55);
+  background:rgba(14,11,6,.62);-webkit-backdrop-filter:blur(26px);backdrop-filter:blur(26px);
+  box-shadow:0 40px 100px -30px rgba(4,3,2,.85);
+}
+.ticket-media{padding:20px 20px 0}
+.vid{position:relative;display:block;width:100%;aspect-ratio:360/203;padding:0;border:0;border-radius:16px;overflow:hidden;background:var(--card);cursor:pointer}
+.vid img{position:absolute;left:-16.67%;top:0;width:116.67%;height:116.26%;max-width:none;object-fit:cover}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:999px;border:1px solid rgba(247,248,250,.55);background:rgba(247,248,250,.24);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ink);transition:background-color .16s ease-out}
+.vid:hover .play{background:rgba(247,248,250,.34)}
+.t-info{display:flex;flex-direction:column;gap:6px;padding:22px 26px 0}
+.t-kicker{font:700 12px/16px var(--inter);letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.t-title{font:600 27px/32px var(--sora);letter-spacing:-.025em;color:var(--ink)}
+.t-host{font:500 16px/20px var(--inter);color:rgba(247,248,250,.75)}
+.t-meta{display:flex;padding:20px 26px 22px}
+.t-meta div{display:flex;flex-direction:column;gap:4px}
+.t-meta div:nth-child(1){flex:0 0 116px}
+.t-meta div:nth-child(2){flex:0 0 128px}
+.t-label{font:600 11px/14px var(--inter);letter-spacing:.14em;text-transform:uppercase;color:rgba(247,248,250,.5)}
+.t-val{font:600 15px/18px var(--inter);color:var(--ink)}
+.perf{position:relative;display:flex;align-items:center;height:24px}
+.perf::before{content:"";flex:1;border-top:2px dashed rgba(233,201,119,.4)}
+.perf i{position:absolute;top:0;width:26px;height:24px;border-radius:999px;background:var(--bg);border:1px solid rgba(217,178,84,.55)}
+.perf i:first-child{left:-13px}
+.perf i:last-child{right:-13px}
+.t-stub{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 26px 24px}
+.t-stub s{display:block;font:500 14px/18px var(--inter);color:rgba(247,248,250,.5);text-decoration-thickness:1px}
+.t-free{font:700 46px/50px var(--sora);letter-spacing:-.045em;color:var(--gold)}
+.t-india{display:flex;flex-direction:column;align-items:flex-end;gap:4px;text-align:right}
+
+/* Proof bar */
+.proof{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:56px;padding-top:26px;border-top:1px solid rgba(217,178,84,.2)}
+.proof-quote{display:flex;align-items:center;gap:18px;flex:0 1 620px;min-width:0}
+.proof-quote img{width:60px;height:60px;border-radius:999px;object-fit:cover;flex-shrink:0}
+.proof-quote blockquote{font:500 18px/26px var(--sora);letter-spacing:-.01em;color:var(--ink)}
+.proof-quote figcaption{margin-top:4px;font:500 14px/18px var(--inter);color:var(--ink-60)}
+.proof-certs{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.proof-thumbs{display:flex;gap:8px}
+.proof-thumbs img{width:82px;height:69px;border-radius:8px;object-fit:cover;background:var(--ink)}
+.proof-count strong{display:block;font:600 22px/28px var(--sora);letter-spacing:-.02em;color:var(--ink)}
+.proof-count span{display:block;margin-top:2px;font:500 14px/18px var(--inter);color:var(--ink-60)}
+
+/* ---------- S1 · How to get the offer ---------- */
+.s-offer{padding:64px 0 136px}
+.s-offer .wrap{display:flex;flex-direction:column;gap:64px}
+.steps{position:relative;display:flex;gap:40px}
+.steps::before{content:"";position:absolute;left:8px;top:8px;right:0;height:1px;background:rgba(217,178,84,.36)}
+.step{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:28px}
+.dot{position:relative;display:flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:999px;border:1px solid var(--gold);background:var(--bg)}
+.dot::after{content:"";width:7px;height:7px;border-radius:999px;background:var(--gold)}
+.step-num{font:700 72px/68px var(--sora);letter-spacing:-.05em;color:var(--gold)}
+.step-body{display:flex;flex-direction:column;gap:10px}
+.step h3{font:600 24px/30px var(--sora);letter-spacing:-.02em}
+.step p{max-width:330px;font-size:17px;line-height:27px;color:var(--ink-72)}
+
+/* ---------- S2 · Pain ---------- */
+.s-pain{padding:24px 0 140px}
+.s-pain .wrap{display:flex;flex-direction:column;gap:56px}
+.s-pain .h2{max-width:760px}
+.problems{border-bottom:1px solid var(--line)}
+.problem{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;padding:34px 0 38px;border-top:1px solid var(--line)}
+.problem-head{display:flex;align-items:flex-start;gap:22px;flex:0 1 640px;min-width:0}
+.problem-icon{display:flex;align-items:center;flex:0 0 28px;height:42px;color:rgba(247,248,250,.6)}
+.problem h3{font:600 36px/42px var(--sora);letter-spacing:-.03em}
+.problem p{flex:0 1 440px;padding-top:6px;font-size:18px;line-height:29px;color:var(--ink-72)}
+
+/* ---------- S3 · Solution ---------- */
+.s-solution{position:relative;padding:24px 0 150px}
+.s-solution::before{
+  content:"";position:absolute;left:0;right:0;top:0;bottom:-360px;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 840px 470px at calc(50% + 10px) calc(100% - 530px),
+    rgba(30,61,105,.48) 0%, rgba(30,61,105,.42) 16%, rgba(30,61,105,.27) 42%, rgba(30,61,105,.09) 70%, rgba(30,61,105,0) 100%);
+}
+.s-solution .wrap{display:flex;flex-direction:column;gap:64px}
+.s-solution .h2{max-width:760px}
+.benefits{display:flex;align-items:flex-start;justify-content:space-between;gap:40px}
+.benefits h3,.numbers h3{font:600 24px/32px var(--sora);letter-spacing:-.02em}
+.benefits h3{flex:0 0 340px}
+.benefit-grid{flex:0 1 776px;display:grid;grid-template-columns:repeat(2,minmax(0,360px));column-gap:56px;row-gap:44px}
+.benefit{display:flex;align-items:flex-start;gap:16px}
+.benefit-icon{display:flex;align-items:center;flex:0 0 22px;height:28px;color:rgba(247,248,250,.7)}
+.benefit div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.benefit strong{font:600 19px/28px var(--inter);color:var(--ink)}
+.benefit span{max-width:330px;font-size:17px;line-height:27px;color:var(--ink-72)}
+.numbers{display:flex;flex-direction:column;gap:20px;padding-top:20px}
+.stat-line{font:700 64px/76px var(--sora);letter-spacing:-.045em;color:var(--ink)}
+.stat-line .u{font-weight:300;color:rgba(247,248,250,.58)}
+.stat-line .sep{font-weight:300;color:rgba(247,248,250,.22)}
+
+/* ---------- S4 · Wall of Excellence ---------- */
+.s-wall{padding:0 0 150px}
+.wall-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-bottom:30px}
+.wall-head .sec-head{max-width:640px}
+.pill{display:inline-flex;align-items:center;gap:12px;flex-shrink:0;padding:10px 18px 10px 12px;border:1px solid rgba(247,248,250,.15);border-radius:999px;font:600 16px/22px var(--inter);color:var(--ink)}
+.rail{
+  display:flex;gap:16px;margin-top:18px;padding:0 var(--edge) 12px;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;scroll-padding-inline:var(--edge);
+  scrollbar-width:thin;scrollbar-color:rgba(247,248,250,.18) transparent;
+}
+.rail:focus-visible{outline-offset:-2px;border-radius:12px}
+.cert{flex:0 0 212px;height:178px;border-radius:12px;border:1px solid rgba(247,248,250,.18);background:var(--ink);overflow:hidden;scroll-snap-align:start}
+.cert img{width:100%;height:100%;object-fit:cover}
+.cert-more{flex:0 0 180px;height:178px;display:flex;flex-direction:column;justify-content:space-between;padding:20px 22px;border-radius:12px;border:1px solid rgba(247,248,250,.15);background:rgba(247,248,250,.04);color:rgba(247,248,250,.7);scroll-snap-align:start}
+.cert-more p{font:600 24px/30px var(--sora);letter-spacing:-.02em;color:var(--ink)}
+.rail-foot{display:flex;flex-direction:column;align-items:flex-start;gap:48px;margin-top:6px}
+.rail-foot p{font-size:15px;line-height:22px;color:var(--ink-56)}
+
+/* ---------- S5 · Workshop steps ---------- */
+.s-workshop{padding:0 0 130px}
+.s-workshop .wrap{display:flex;align-items:flex-start;justify-content:space-between;gap:40px}
+.ws-head{flex:0 1 540px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.ws-head .lead{max-width:430px}
+.facts{display:flex;align-items:center;gap:14px;padding-top:34px;font:500 15px/22px var(--inter);color:var(--ink-60)}
+.timeline{flex:0 1 590px;min-width:0;display:flex;flex-direction:column;gap:48px;padding-top:10px}
+.tl-step{position:relative;display:flex;align-items:flex-start;gap:30px}
+.tl-step:not(:last-child)::before{content:"";position:absolute;left:21px;top:43px;bottom:-48px;width:1px;background:rgba(247,248,250,.18)}
+.tl-icon{position:relative;display:flex;align-items:center;justify-content:center;flex:0 0 43px;height:43px;border-radius:999px;border:1px solid rgba(247,248,250,.25);background:var(--bg);color:var(--ink)}
+.tl-body{display:flex;flex-direction:column;gap:8px;min-width:0}
+.tl-kicker{font:600 15px/20px var(--inter);color:var(--ink-56)}
+.tl-body h3{font:600 28px/34px var(--sora);letter-spacing:-.025em}
+.tl-body p{max-width:500px;font-size:17px;line-height:27px;color:var(--ink-72)}
+
+/* ---------- S6 · Meet Vyom ---------- */
+.s-vyom{position:relative;padding:20px 0 150px}
+.s-vyom::before{
+  content:"";position:absolute;left:0;right:0;top:-260px;bottom:-280px;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 660px 620px at calc(50% - 340px) 520px,
+    rgba(176,106,44,.16) 0%, rgba(176,106,44,.13) 32%, rgba(176,106,44,.08) 55%, rgba(176,106,44,.025) 78%, rgba(176,106,44,0) 100%);
+}
+.s-vyom .wrap{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.vyom-photo{position:relative;flex:0 1 520px;min-width:0;aspect-ratio:520/470;border-radius:24px;border:1px solid var(--line);overflow:hidden;background:var(--card)}
+.vyom-photo img{position:absolute;left:-2.69%;top:-2.34%;width:105.38%;height:106.6%;max-width:none;object-fit:cover}
+.story{flex:0 1 590px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.my-story{display:flex;flex-direction:column;gap:14px;padding-top:22px}
+.my-story h3{font:600 20px/26px var(--sora);letter-spacing:-.015em}
+.my-story p{max-width:560px;font-size:17px;line-height:28px;color:var(--ink-72)}
+.my-story strong{font-weight:600;color:var(--ink)}
+
+/* ---------- S7 · Includes ticket ---------- */
+.s-includes{position:relative;padding:0 0 150px}
+.s-includes::before{
+  content:"";position:absolute;left:0;right:0;top:-100px;bottom:-320px;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 620px 560px at calc(50% + 460px) 480px,
+    rgba(217,178,84,.13) 0%, rgba(217,178,84,.11) 28%, rgba(217,178,84,.065) 50%, rgba(217,178,84,.02) 75%, rgba(217,178,84,0) 100%);
+}
+.s-includes .wrap{display:flex;flex-direction:column;gap:48px}
+.receipt{position:relative;display:flex;overflow:hidden;border-radius:28px;border:1px solid rgba(217,178,84,.4);background:var(--card)}
+.r-main{flex:0 1 776px;min-width:0;padding:52px 44px}
+.r-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:22px}
+.r-head img{width:107px;height:auto}
+.r-head p{font:500 14px/18px var(--inter);color:var(--ink-60);text-align:right}
+.r-item{display:flex;align-items:center;gap:16px;padding:17px 0;border-bottom:1px solid rgba(247,248,250,.09)}
+.r-item:last-child{padding-bottom:0;border-bottom:0}
+.r-check{display:flex;align-items:center;justify-content:center;flex:0 0 24px;height:24px;border-radius:999px;background:var(--gold);color:var(--bg)}
+.r-text{flex:1;min-width:0;display:grid;grid-template-columns:296px minmax(0,1fr);align-items:center}
+.r-text strong{font:600 17px/26px var(--inter);color:var(--ink)}
+.r-text span{font-size:16px;line-height:25px;color:var(--ink-72)}
+.r-perf{position:relative;display:flex;justify-content:center;flex:0 0 26px;padding:30px 0}
+.r-perf::before{content:"";border-left:2px dashed rgba(233,201,119,.4)}
+.r-perf i{position:absolute;left:0;width:26px;height:26px;border-radius:999px;background:var(--bg);border:1px solid rgba(217,178,84,.55)}
+.r-perf i:first-child{top:-14px}
+.r-perf i:last-child{bottom:-14px}
+.r-stub{flex:1 1 396px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:32px;padding:52px 44px 56px}
+.r-price{display:flex;flex-direction:column;gap:4px}
+.r-regular{font:500 16px/24px var(--inter);color:var(--ink-60)}
+.r-regular s{text-decoration-thickness:1px}
+.r-today{padding-top:18px;font:600 16px/24px var(--inter);color:var(--ink)}
+.r-free{font:700 84px/84px var(--sora);letter-spacing:-.05em;color:var(--gold)}
+.r-bonus{padding-top:6px;font:600 17px/24px var(--inter);color:var(--ink)}
+.r-act{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.r-note{display:flex;align-items:flex-start;gap:10px;max-width:300px;font:600 16px/24px var(--inter);color:var(--gold-soft)}
+.r-note::before{content:"";flex:0 0 8px;height:8px;margin-top:8px;background:var(--gold);transform:rotate(45deg)}
+
+/* ---------- S8 · Student videos ---------- */
+.s-videos{padding:0 0 140px}
+.s-videos .wrap{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.vid-head{flex:0 1 380px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.vid-head .lead{max-width:370px}
+.playlist{position:relative;display:block;flex:0 1 760px;min-width:0;aspect-ratio:760/428;padding:0;border-radius:22px;border:1px solid rgba(247,248,250,.14);overflow:hidden;background:var(--card);cursor:pointer}
+.playlist img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.playlist .scrim{position:absolute;inset:0;background:rgba(11,9,6,.15)}
+.play-lg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:96px;height:96px;border-radius:999px;border:1px solid rgba(247,248,250,.5);background:rgba(11,9,6,.62);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:var(--ink);transition:background-color .16s ease-out}
+.playlist:hover .play-lg{background:rgba(11,9,6,.78)}
+
+/* ---------- S9 · FAQ ---------- */
+.s-faq{padding:10px 0 150px}
+.s-faq .wrap{display:flex;flex-direction:column;gap:44px}
+.faq details{border:1px solid transparent;border-bottom-color:rgba(247,248,250,.1)}
+.faq details:last-child{border-bottom-color:transparent}
+.faq details[open]{border-color:var(--line);border-radius:20px;background:rgba(247,248,250,.04);padding-bottom:34px}
+.faq summary{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:44px;padding:28px 36px;cursor:pointer;list-style:none;font:600 24px/32px var(--sora);letter-spacing:-.02em;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:focus-visible{outline-offset:-2px;border-radius:20px}
+.faq details[open] summary{padding:30px 36px 14px}
+.chev{display:flex;align-items:center;justify-content:center;flex:0 0 32px;height:32px;color:rgba(247,248,250,.5);transition:transform .16s ease-out,color .16s ease-out}
+.faq details[open] .chev{transform:rotate(180deg);color:rgba(247,248,250,.7)}
+.faq summary:hover .chev{color:rgba(247,248,250,.8)}
+.ans{padding:0 36px}
+.ans p{max-width:760px;font-size:18px;line-height:29px;color:var(--ink-76)}
+
+/* ---------- S10 · Final decision ---------- */
+.s-final{position:relative;padding:20px 0 140px}
+.s-final::before{
+  content:"";position:absolute;left:0;right:0;top:0;bottom:-120px;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 790px 570px at calc(50% + 370px) 490px,
+    rgba(217,178,84,.09) 0%, rgba(217,178,84,.08) 12%, rgba(217,178,84,.05) 40%, rgba(217,178,84,.015) 70%, rgba(217,178,84,0) 100%);
+}
+.s-final .wrap{display:flex;flex-direction:column;gap:64px}
+.s-final .h2{max-width:940px;font-size:64px;line-height:68px;letter-spacing:-.04em}
+.final-cols{display:flex;align-items:flex-start;justify-content:space-between;gap:40px}
+.options{flex:0 1 540px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.opt{display:flex;flex-direction:column;gap:10px;padding:26px 30px 28px;border-radius:18px;border:1px solid rgba(247,248,250,.13)}
+.opt-label{font:600 15px/20px var(--inter);color:var(--ink-56)}
+.opt p{font-size:18px;line-height:29px;color:var(--ink-72)}
+.opt--pick{background:rgba(217,178,84,.08);border-color:rgba(217,178,84,.65)}
+.opt--pick .opt-label{color:var(--gold-soft)}
+.opt--pick p{font-weight:500;color:var(--ink)}
+.final-note{max-width:520px;padding-top:16px;font-size:18px;line-height:29px;color:var(--ink-76)}
+.final-note strong{font-weight:600;color:var(--ink)}
+.cd-col{flex:0 1 560px;min-width:0;padding-top:6px}
+.cd{display:flex;align-items:flex-start;gap:20px;padding-top:20px}
+.cd-unit{display:flex;flex-direction:column;gap:8px}
+.cd-num{font:700 72px/72px var(--sora);letter-spacing:-.05em;color:var(--gold);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cd-label{font:500 15px/20px var(--inter);color:var(--ink-60)}
+.cd-colon{font:300 52px/66px var(--sora);color:rgba(217,178,84,.4)}
+.cd-when{padding-top:22px;font:500 16px/24px var(--inter);color:var(--ink-72)}
+.cd-when span{display:block;color:var(--ink-56)}
+.cd-cta{padding-top:40px}
+.cd-small{max-width:440px;padding-top:18px;font-size:15px;line-height:22px;color:var(--ink-60)}
+
+/* ---------- Footer ---------- */
+.footer{position:relative;padding:0 0 80px}
+.footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:28px;border-top:1px solid rgba(247,248,250,.1)}
+.footer p{font-size:14px;line-height:20px;color:var(--ink-56)}
+.footer ul{display:flex;gap:32px}
+.footer a{display:inline-flex;align-items:center;min-height:44px;margin-block:-12px;font:500 14px/20px var(--inter);color:var(--ink-72);text-decoration:none;transition:color .16s ease-out}
+.footer a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+/* ================= Responsive ================= */
+
+/* Narrow desktop and tablet: the hero, benefits and final columns stack. */
+@media (max-width:1179px){
+  .hero{flex-direction:column;align-items:stretch;gap:24px;padding-top:56px}
+  .hero-copy{flex:none}
+  .bf-word{font-size:clamp(56px,15.4vw,100px)}
+  .hero h1{font-size:clamp(30px,5.8vw,52px)}
+  .ticket-stage{flex:none;height:auto;display:flex;justify-content:center;padding:40px 0 24px}
+  .ticket{position:relative;left:auto;top:auto;width:min(100%,400px);transform:rotate(-4deg);transform-origin:50% 50%}
+  .benefits{flex-direction:column;gap:32px}
+  .benefits h3{flex:none}
+  .benefit-grid{flex:none;width:100%;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}
+  .stat-line{font-size:clamp(34px,5.4vw,64px);line-height:1.19}
+  .r-text{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+  .r-main{flex:1 1 auto}
+  .r-stub{flex:0 0 360px;padding:44px 40px 48px}
+  .vid-head{min-width:340px}
+  .final-cols{flex-direction:column;gap:56px}
+  .options,.cd-col{flex:none;width:100%;max-width:600px}
+}
+
+/* Tablet and phone: one column everywhere. */
+@media (max-width:899px){
+  body{background:
+    radial-gradient(circle 640px at 82% 420px,
+      rgba(222,176,82,.215) 0%, rgba(222,176,82,.19) 30%, rgba(219,172,80,.112) 56%,
+      rgba(214,166,76,.043) 78%, rgba(214,166,76,0) 100%) no-repeat,
+    var(--bg)}
+  .h2{font-size:40px;line-height:46px;letter-spacing:-.03em}
+  .s-final .h2{font-size:44px;line-height:50px}
+  .proof{flex-direction:column;align-items:flex-start;gap:24px;margin-top:40px}
+  .proof-quote{flex:none}
+
+  .s-offer{padding:56px 0 96px}
+  .s-offer .wrap{gap:44px}
+  .steps{flex-direction:column;gap:40px}
+  .steps::before{left:8px;top:8px;bottom:8px;right:auto;width:1px;height:auto}
+  .step{display:grid;grid-template-columns:17px minmax(0,1fr);column-gap:22px;row-gap:14px;flex:none}
+  .dot{grid-row:1;grid-column:1;margin-top:20px}
+  .step-num{grid-row:1;grid-column:2;font-size:56px;line-height:56px}
+  .step-body{grid-row:2;grid-column:2}
+
+  .s-pain{padding:0 0 96px}
+  .s-pain .wrap{gap:40px}
+  .problem{flex-direction:column;gap:12px;padding:28px 0 30px}
+  .problem-head{flex:none;gap:14px}
+  .problem-icon{flex-basis:24px;height:34px}
+  .problem h3{font-size:28px;line-height:34px}
+  .problem p{flex:none;padding:0 0 0 38px}
+
+  .s-solution{padding:0 0 96px}
+  .s-solution .wrap{gap:48px}
+  .s-solution::before{background:radial-gradient(ellipse 120% 420px at 50% calc(100% - 480px),rgba(30,61,105,.46) 0%,rgba(30,61,105,.3) 35%,rgba(30,61,105,.1) 68%,rgba(30,61,105,0) 100%)}
+
+  .s-wall{padding:0 0 96px}
+  .wall-head{flex-direction:column;align-items:flex-start;gap:20px;padding-bottom:22px}
+  .rail{scroll-snap-type:x mandatory}
+  .rail-foot{gap:32px}
+
+  .s-workshop{padding:0 0 96px}
+  .s-workshop .wrap{flex-direction:column;gap:48px}
+  .ws-head,.timeline{flex:none;width:100%}
+  .facts{padding-top:14px}
+
+  .s-vyom{padding:0 0 96px}
+  .s-vyom .wrap{flex-direction:column;align-items:stretch;gap:40px}
+  .vyom-photo{flex:none;width:100%;max-width:560px}
+  .s-vyom::before{background:radial-gradient(ellipse 560px 520px at 30% 500px,rgba(176,106,44,.16) 0%,rgba(176,106,44,.1) 40%,rgba(176,106,44,.03) 72%,rgba(176,106,44,0) 100%)}
+
+  .s-includes{padding:0 0 96px}
+  .s-includes .wrap{gap:36px}
+  .s-includes::before{background:radial-gradient(ellipse 520px 520px at 80% calc(100% - 700px),rgba(217,178,84,.13) 0%,rgba(217,178,84,.08) 40%,rgba(217,178,84,.025) 72%,rgba(217,178,84,0) 100%)}
+  .receipt{flex-direction:column}
+  .r-main{flex:none;padding:36px 32px 32px}
+  .r-perf{flex:none;height:26px;padding:0 30px;align-items:center}
+  .r-perf::before{flex:1;border-left:0;border-top:2px dashed rgba(233,201,119,.4)}
+  .r-perf i:first-child{top:0;left:-14px}
+  .r-perf i:last-child{top:0;bottom:auto;left:auto;right:-14px}
+  .r-stub{flex:none;padding:32px 32px 40px}
+
+  .s-videos{padding:0 0 96px}
+  .s-videos .wrap{flex-direction:column;align-items:stretch;gap:36px}
+  .vid-head,.playlist{flex:none;width:100%;min-width:0}
+
+  .s-faq{padding:0 0 96px}
+  .s-faq .wrap{gap:32px}
+
+  .s-final{padding:0 0 96px}
+  .s-final .wrap{gap:44px}
+}
+
+/* Phone */
+@media (max-width:599px){
+  :root{--gutter:20px;--optical:3px}
+  .h2{font-size:32px;line-height:38px}
+  .lead{font-size:17px;line-height:27px}
+  .sec-head{gap:14px}
+
+  .hero-sec{padding-bottom:64px}
+  .topbar{padding:16px 0 14px}
+  .topbar img{width:96px}
+  .topbar p{max-width:180px;font-size:13px;line-height:17px}
+  .hero{padding-top:28px}
+  .eyebrow{font-size:12px;letter-spacing:.16em}
+  .bf-word{padding-top:12px}
+  .hero-text{gap:14px;padding-top:16px}
+  .hero h1{line-height:36px;letter-spacing:-.03em}
+  .hero h1 br{display:none}
+  .hero .lead{font-size:16px;line-height:25px}
+  .hero-cta{flex-direction:column;align-items:stretch;gap:14px;padding-top:24px}
+  .hero-cta .cta,.rail-foot .cta{justify-content:space-between}
+  .rail-foot{align-items:stretch}
+  .price-note{flex-direction:row;align-items:baseline;gap:10px}
+  .ticket-stage{padding:32px 0 8px}
+  .ticket{width:min(100%,360px);transform:rotate(-2deg)}
+  .ticket-media{padding:16px 16px 0}
+  .t-info{padding:18px 20px 0}
+  .t-title{font-size:24px;line-height:29px}
+  .t-meta{justify-content:space-between;gap:10px;padding:18px 20px 20px}
+  .t-meta div:nth-child(1),.t-meta div:nth-child(2){flex:0 1 auto}
+  .t-stub{padding:16px 20px 20px}
+  .t-free{font-size:40px;line-height:44px}
+  .t-india .t-val{font-size:14px}
+  .proof-quote{align-items:flex-start;gap:14px}
+  .proof-quote img{width:52px;height:52px}
+  .proof-quote blockquote{font-size:17px;line-height:25px}
+  .proof-thumbs img{width:72px;height:60px}
+  .proof-certs{flex-wrap:wrap;gap:14px}
+
+  .s-offer{padding-top:0;padding-bottom:80px}
+  .step h3{font-size:22px;line-height:28px}
+  .step p{font-size:16px;line-height:26px}
+
+  .s-pain,.s-solution,.s-wall,.s-workshop,.s-vyom,.s-includes,.s-videos,.s-faq,.s-final{padding-bottom:80px}
+  .problem h3{font-size:24px;line-height:30px}
+  .problem p{font-size:17px;line-height:27px}
+
+  .benefits h3,.numbers h3{font-size:22px;line-height:30px}
+  .benefit-grid{grid-template-columns:minmax(0,1fr);row-gap:24px}
+  .benefit strong{font-size:18px;line-height:26px}
+  .benefit span{font-size:16px;line-height:25px}
+  .numbers{padding-top:0;gap:14px}
+  .stat-line{font-size:34px;line-height:42px;letter-spacing:-.04em}
+
+  .tl-step{gap:18px}
+  .timeline{gap:36px}
+  .tl-step:not(:last-child)::before{bottom:-36px}
+  .tl-body h3{font-size:24px;line-height:30px}
+  .tl-body p{font-size:16px;line-height:26px}
+  .facts{align-items:flex-start}
+
+  .my-story{padding-top:8px}
+  .my-story p{font-size:16px;line-height:27px}
+
+  .r-main{padding:28px 22px 26px}
+  .r-head{flex-direction:column;align-items:flex-start;gap:12px;padding-bottom:12px}
+  .r-head p{text-align:left;font-size:13px}
+  .r-item{align-items:flex-start;gap:14px;padding:14px 0}
+  .r-check{margin-top:1px}
+  .r-text strong{font-size:16px;line-height:24px}
+  .r-text span{font-size:16px;line-height:24px}
+  .r-perf{padding:0 22px}
+  .r-stub{padding:26px 22px 30px;gap:28px}
+  .r-free{font-size:64px;line-height:66px}
+  .r-today{padding-top:12px}
+  .r-act .cta{align-self:stretch;justify-content:space-between}
+
+  .play-lg{width:72px;height:72px}
+  .play-lg svg{width:22px;height:22px}
+
+  .faq summary{gap:14px;padding:20px 16px;font-size:19px;line-height:26px}
+  .faq details[open] summary{padding:22px 16px 10px}
+  .faq details[open]{padding-bottom:24px;border-radius:16px}
+  .ans{padding:0 16px}
+  .ans p{font-size:16px;line-height:26px}
+  .chev{flex-basis:28px;height:28px}
+
+  .s-final .h2{font-size:34px;line-height:40px;letter-spacing:-.035em}
+  .opt{padding:20px 20px 22px}
+  .opt p,.final-note{font-size:16px;line-height:26px}
+  .cd{gap:8px;padding-top:16px}
+  .cd-num{font-size:46px;line-height:48px}
+  .cd-colon{font-size:32px;line-height:46px}
+  .cd-label{font-size:14px;line-height:18px}
+  .cd-cta{padding-top:28px}
+  .cd-cta .cta{display:flex;justify-content:space-between;width:100%;padding-left:22px}
+
+  .footer{padding-bottom:88px}
+  .footer .wrap{flex-direction:column;align-items:flex-start;gap:18px}
+  .footer ul{flex-wrap:wrap;gap:0 24px}
+}
+
+/* Small phones: keep every button label on one line. */
+@media (max-width:380px){
+  .cta,.cd-cta .cta{gap:10px;padding-left:18px;font-size:16px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body data-option="2">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow-thin" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.6-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></g></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></g></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></g></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></g></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></g></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></g></symbol>
+  <symbol id="i-target-b" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></g></symbol>
+  <symbol id="i-chart-b" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></g></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 20 20"><path d="M10 13.2 3.6 6.8l1.4-1.4L10 10.4l5-5 1.4 1.4z" fill="currentColor"/></symbol>
+</svg>
+
+<div class="page">
+
+<header class="wrap topbar">
+  <img src="../assets/img/logo-light.webp" width="540" height="151" alt="Frenchify with Vyom Inc." loading="eager" decoding="async">
+  <p>Sat 28 Nov · 8:00 PM Montreal · Online</p>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero-sec" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Free live workshop · Limited seats</p>
+          <p class="bf-word">Black Friday</p>
+          <div class="hero-text">
+            <h1 id="hero-title">French for Canadian PR:<br> Live Assessment Workshop</h1>
+            <p class="lead">Discover in 90 minutes if French is your fastest path to Canadian PR. Take a live assessment and get your personalized French learning strategy - completely free.</p>
+          </div>
+          <div class="hero-cta">
+            <a href="#" data-cta class="cta"><span>Reserve My Free Spot</span><span class="cta-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow"/></svg></span></a>
+            <p class="price-note"><s>$19 CAD</s> <span>Free for Black Friday</span></p>
+          </div>
+        </div>
+
+        <div class="ticket-stage">
+          <article class="ticket" aria-label="Event ticket">
+            <div class="ticket-media">
+              <button type="button" class="vid" data-video-wistia="giyksplji4" aria-label="Play the workshop video">
+                <img src="../assets/img/vsl-poster.webp" width="1280" height="720" alt="" loading="eager" decoding="async">
+                <span class="play" aria-hidden="true"><svg width="20" height="20"><use href="#i-play"/></svg></span>
+              </button>
+            </div>
+            <div class="t-info">
+              <p class="t-kicker">Admit one · Free</p>
+              <p class="t-title">Live Assessment Workshop</p>
+              <p class="t-host">with Vyom Sharma</p>
+            </div>
+            <div class="t-meta">
+              <div><span class="t-label">Date</span><span class="t-val">Sat 28 Nov</span></div>
+              <div><span class="t-label">Time</span><span class="t-val">8 PM Montreal</span></div>
+              <div><span class="t-label">Length</span><span class="t-val">90 min</span></div>
+            </div>
+            <div class="perf" aria-hidden="true"><i></i><i></i></div>
+            <div class="t-stub">
+              <div>
+                <s>$19 CAD</s>
+                <p class="t-free">FREE</p>
+              </div>
+              <div class="t-india">
+                <span class="t-label">In India</span>
+                <span class="t-val">Sun 29 Nov, 6:30 AM</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="proof">
+        <figure class="proof-quote">
+          <img src="../assets/img/vyom-face.webp" width="240" height="240" alt="Vyom Sharma, the workshop host" loading="lazy" decoding="async">
+          <div>
+            <blockquote>"In just 8 months, I went from zero to CLB 7 and added 62 points to my CRS score."</blockquote>
+            <figcaption>Vyom Sharma, your host. PR invitation in November 2022.</figcaption>
+          </div>
+        </figure>
+        <div class="proof-certs">
+          <div class="proof-thumbs">
+            <img src="../assets/img/result-1.webp" width="760" height="637" alt="" loading="lazy" decoding="async">
+            <img src="../assets/img/result-2.webp" width="760" height="637" alt="" loading="lazy" decoding="async">
+            <img src="../assets/img/result-3.webp" width="760" height="637" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="proof-count"><strong>150+</strong> <span>verified TEF/TCF results</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S1 · How to get the offer -->
+  <section class="s-offer" aria-labelledby="offer-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Black Friday 2026</p>
+        <h2 class="h2" id="offer-title">How to get the Black Friday offer</h2>
+        <p class="lead">Vyom shows the Black Friday offer live in the workshop. Only workshop guests get it.</p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="step-num" aria-hidden="true">01</span>
+          <div class="step-body">
+            <h3>Reserve your free spot</h3>
+            <p>Complete the short form. The workshop is free.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="step-num" aria-hidden="true">02</span>
+          <div class="step-body">
+            <h3>Join the live workshop</h3>
+            <p>Sat 28 Nov, 8:00 PM, Montreal time. Join online from anywhere.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="step-num" aria-hidden="true">03</span>
+          <div class="step-body">
+            <h3>Get the Black Friday offer</h3>
+            <p>Vyom gives the offer to workshop guests in the live session.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- S2 · Pain -->
+  <section class="s-pain" aria-labelledby="pain-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2" id="pain-title">Tired of Waiting in the Express Entry Pool?</h2>
+        <p class="lead">If you’re stuck with any of these problems, this workshop will show you a proven alternative.</p>
+      </div>
+      <ul class="problems">
+        <li class="problem">
+          <div class="problem-head">
+            <span class="problem-icon" aria-hidden="true"><svg width="26" height="26"><use href="#i-chart"/></svg></span>
+            <h3>CRS Score Isn’t Competitive</h3>
+          </div>
+          <p>Draws keep hitting 480+ and your score isn’t close. You’re watching months go by with no guarantee.</p>
+        </li>
+        <li class="problem">
+          <div class="problem-head">
+            <span class="problem-icon" aria-hidden="true"><svg width="26" height="26"><use href="#i-clock"/></svg></span>
+            <h3>Time is Running Out</h3>
+          </div>
+          <p>Your age points are decreasing, permits need renewal, and other options take years you don’t have.</p>
+        </li>
+        <li class="problem">
+          <div class="problem-head">
+            <span class="problem-icon" aria-hidden="true"><svg width="26" height="26"><use href="#i-target"/></svg></span>
+            <h3>Opportunity Cost is Huge</h3>
+          </div>
+          <p>Every month you wait is lost Canadian income, career growth, and life progress.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- S3 · Solution -->
+  <section class="s-solution" aria-labelledby="solution-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2" id="solution-title">What if French Could Change Everything?</h2>
+        <p class="lead">While thousands wait, smart candidates are using French to guarantee their PR invitation.</p>
+      </div>
+      <div class="benefits">
+        <h3>Here’s what French can do for your application:</h3>
+        <ul class="benefit-grid">
+          <li class="benefit">
+            <span class="benefit-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-chart"/></svg></span>
+            <div><strong>Add 50+ CRS points</strong><span>Guarantee your selection in the next draw</span></div>
+          </li>
+          <li class="benefit">
+            <span class="benefit-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-award"/></svg></span>
+            <div><strong>Access special francophone draws</strong><span>With significantly lower cutoff scores</span></div>
+          </li>
+          <li class="benefit">
+            <span class="benefit-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-flag"/></svg></span>
+            <div><strong>Qualify for dedicated streams</strong><span>In multiple provinces across Canada</span></div>
+          </li>
+          <li class="benefit">
+            <span class="benefit-icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-users"/></svg></span>
+            <div><strong>Skip the competition</strong><span>Only 5% of candidates speak French</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="numbers">
+        <h3>The Numbers Don’t Lie:</h3>
+        <p class="stat-line">50+ <span class="u">CRS Points</span><span class="sep"> / </span>8-12 <span class="u">Months to PR</span><span class="sep"> / </span>95% <span class="u">Less Competition</span><span class="sep"> / </span>Proven <span class="u">Pathway</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4 · Wall of Excellence -->
+  <section class="s-wall" aria-labelledby="wall-title">
+    <div class="wrap wall-head">
+      <div class="sec-head">
+        <h2 class="h2" id="wall-title">Wall of Excellence</h2>
+        <p class="lead">Every screenshot below is a real TEF/TCF attestation from a Frenchify student.</p>
+      </div>
+      <p class="pill"><svg width="22" height="22" aria-hidden="true"><use href="#i-check-circle"/></svg>150+ Verified results</p>
+    </div>
+    <div class="rail" role="group" aria-label="Real TEF and TCF results from Frenchify students" tabindex="0">
+      <div class="cert"><img src="../assets/img/result-1.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-2.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-3.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-4.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-5.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-6.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-7.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-8.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-9.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-10.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-11.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert"><img src="../assets/img/result-12.webp" width="760" height="637" alt="" loading="lazy" decoding="async"></div>
+      <div class="cert-more">
+        <svg width="22" height="22" aria-hidden="true"><use href="#i-arrow-thin"/></svg>
+        <p>and more...</p>
+      </div>
+    </div>
+    <div class="wrap rail-foot">
+      <p>Swipe or scroll sideways to see the rest.</p>
+      <a href="#" data-cta class="cta"><span>Reserve My Free Spot</span><span class="cta-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </section>
+
+  <!-- S5 · Workshop steps -->
+  <section class="s-workshop" aria-labelledby="workshop-title">
+    <div class="wrap">
+      <div class="ws-head">
+        <h2 class="h2" id="workshop-title">What Happens in This Live Assessment Workshop</h2>
+        <p class="lead">This isn’t a typical webinar. You’ll actively participate in a live assessment that determines your French PR potential.</p>
+        <p class="facts"><svg width="20" height="20" aria-hidden="true"><use href="#i-clock"/></svg>90 minutes, live online. Sat 28 Nov, 8:00 PM Montreal.</p>
+      </div>
+      <ol class="timeline">
+        <li class="tl-step">
+          <span class="tl-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-target-b"/></svg></span>
+          <div class="tl-body">
+            <p class="tl-kicker">Step 01</p>
+            <h3>Personal Assessment</h3>
+            <p>Answer 20 strategic questions to predict your success and get instant results.</p>
+          </div>
+        </li>
+        <li class="tl-step">
+          <span class="tl-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-pin"/></svg></span>
+          <div class="tl-body">
+            <p class="tl-kicker">Step 02</p>
+            <h3>Custom Roadmap</h3>
+            <p>Receive a personalized timeline and strategy to reach CLB 7 based on your score.</p>
+          </div>
+        </li>
+        <li class="tl-step">
+          <span class="tl-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-chart-b"/></svg></span>
+          <div class="tl-body">
+            <p class="tl-kicker">Step 03</p>
+            <h3>ROI Analysis</h3>
+            <p>Understand the cost of waiting vs investing in French with a financial comparison.</p>
+          </div>
+        </li>
+        <li class="tl-step">
+          <span class="tl-icon" aria-hidden="true"><svg width="18" height="18"><use href="#i-chat"/></svg></span>
+          <div class="tl-body">
+            <p class="tl-kicker">Step 04</p>
+            <h3>Live Q&amp;A Session</h3>
+            <p>Meet students who got their PR using French and ask them anything.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- S6 · Meet Vyom -->
+  <section class="s-vyom" aria-labelledby="vyom-title">
+    <div class="wrap">
+      <div class="vyom-photo">
+        <img src="../assets/img/vyom-portrait.webp" width="760" height="695" alt="Vyom Sharma smiling, in a winter jacket and blue scarf" loading="lazy" decoding="async">
+      </div>
+      <div class="story">
+        <h2 class="h2" id="vyom-title">Meet Vyom: He Actually Walked This Path</h2>
+        <p class="lead">This isn’t theory from someone who’s never done it. Vyom used this exact French strategy to get his own Canadian PR.</p>
+        <div class="my-story">
+          <h3>My Story</h3>
+          <p>I arrived in Canada in December 2018. After my studies, I was stuck in the Express Entry pool with a CRS score that wasn’t competitive enough. In April 2021, I started learning French. <strong>In just 8 months, I went from zero to CLB 7 and added 62 points to my CRS score.</strong> I received my PR invitation in November 2022.</p>
+          <p>The assessment in this workshop is what I wish I had when I started. Instead of guessing if French is right for you, you’ll know for certain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S7 · Includes ticket -->
+  <section class="s-includes" aria-labelledby="includes-title">
+    <div class="wrap">
+      <h2 class="h2" id="includes-title">Your Free Workshop Includes:</h2>
+      <div class="receipt">
+        <div class="r-main">
+          <div class="r-head">
+            <img src="../assets/img/logo-light.webp" width="540" height="151" alt="Frenchify with Vyom Inc." loading="lazy" decoding="async">
+            <p>Sat 28 Nov · 8:00 PM Montreal · Online</p>
+          </div>
+          <ul class="r-list">
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>Live 20-question Assessment</strong><span>Know your exact French PR potential</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>Personalized Score Interpretation</strong><span>What your results mean for your timeline</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>Custom Learning Roadmap</strong><span>Step-by-step plan based on YOUR situation</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>Latest Immigration Updates</strong><span>Francophone opportunities most people miss</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>ROI Analysis Worksheet</strong><span>Compare French investment vs waiting</span></span></li>
+            <li class="r-item"><span class="r-check" aria-hidden="true"><svg width="13" height="13"><use href="#i-check"/></svg></span><span class="r-text"><strong>Exclusive Discount Codes</strong><span>Up to $100 CAD off programs</span></span></li>
+          </ul>
+        </div>
+        <div class="r-perf" aria-hidden="true"><i></i><i></i></div>
+        <div class="r-stub">
+          <div class="r-price">
+            <p class="r-regular">Regular Workshop Price: <s>$19 CAD</s></p>
+            <p class="r-today">Today’s Price:</p>
+            <p class="r-free">FREE!</p>
+            <p class="r-bonus">(Plus $497 in Bonuses)</p>
+          </div>
+          <div class="r-act">
+            <p class="r-note">Plus the Black Friday offer, only in the live workshop.</p>
+            <a href="#" data-cta class="cta"><span>Reserve My Free Spot</span><span class="cta-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow"/></svg></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S8 · Student videos -->
+  <section class="s-videos" aria-labelledby="videos-title">
+    <div class="wrap">
+      <div class="vid-head">
+        <h2 class="h2" id="videos-title">Hear Directly From Our Students</h2>
+        <p class="lead">34 success stories from students who cleared CLB 5 and CLB 7. Play them straight through, right here.</p>
+      </div>
+      <button type="button" class="playlist" data-video-playlist="PLIX434KgUuaHsNre2lGTCXOTsROKjy6Z3" aria-label="Play the student success stories playlist">
+        <img src="../assets/img/yt-poster.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
+        <span class="scrim" aria-hidden="true"></span>
+        <span class="play-lg" aria-hidden="true"><svg width="28" height="28"><use href="#i-play"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- S9 · FAQ -->
+  <section class="s-faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <h2 class="h2" id="faq-title">Still Have Doubts?</h2>
+      <div class="faq">
+        <details open>
+          <summary><span>“What is the Black Friday offer?”</span><span class="chev" aria-hidden="true"><svg width="18" height="18"><use href="#i-chev"/></svg></span></summary>
+          <div class="ans"><p>Vyom shows the offer live in the workshop. Only workshop guests get it. Reserve your free spot to see it.</p></div>
+        </details>
+        <details>
+          <summary><span>“I don’t have time to learn a new language”</span><span class="chev" aria-hidden="true"><svg width="18" height="18"><use href="#i-chev"/></svg></span></summary>
+          <div class="ans"><p>The assessment reveals if you have enough time based on your specific timeline. Many students reach CLB 7 in 8-12 months with just 2-3 hours daily.</p></div>
+        </details>
+        <details>
+          <summary><span>“French seems too difficult”</span><span class="chev" aria-hidden="true"><svg width="18" height="18"><use href="#i-chev"/></svg></span></summary>
+          <div class="ans"><p>French shares 60% vocabulary with English. The assessment measures your language learning aptitude - you might be surprised by your natural ability.</p></div>
+        </details>
+        <details>
+          <summary><span>“I’m not sure if it’s worth the investment”</span><span class="chev" aria-hidden="true"><svg width="18" height="18"><use href="#i-chev"/></svg></span></summary>
+          <div class="ans"><p>The workshop includes a complete ROI analysis. You’ll see the exact financial comparison between investing in French and the cost of waiting.</p></div>
+        </details>
+        <details>
+          <summary><span>“What if I fail the TEF/TCF exam?”</span><span class="chev" aria-hidden="true"><svg width="18" height="18"><use href="#i-chev"/></svg></span></summary>
+          <div class="ans"><p>The assessment predicts your success probability. Plus, our students have an 80% first-attempt pass rate, and exams can be retaken.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- S10 · Final decision -->
+  <section class="s-final" aria-labelledby="final-title">
+    <div class="wrap">
+      <h2 class="h2" id="final-title">Your Canadian PR Journey Starts with One Decision</h2>
+      <div class="final-cols">
+        <div class="options">
+          <div class="opt">
+            <p class="opt-label">Option 1</p>
+            <p>Keep waiting in Express Entry, hoping draws get easier (they won’t), watching opportunities pass by.</p>
+          </div>
+          <div class="opt opt--pick">
+            <p class="opt-label">Option 2</p>
+            <p>Take 90 minutes to discover if French could be your PR game-changer and get a personalized roadmap.</p>
+          </div>
+          <p class="final-note">This workshop, normally <strong>$19 CAD</strong>, is completely free today. The assessment alone is worth hundreds in consultation fees.</p>
+        </div>
+        <div class="cd-col">
+          <p class="eyebrow">Workshop starts in</p>
+          <div class="cd" data-countdown="2026-11-29T01:00:00Z">
+            <div class="cd-unit"><span class="cd-num" data-cd="d">03</span><span class="cd-label">days</span></div>
+            <span class="cd-colon" aria-hidden="true">:</span>
+            <div class="cd-unit"><span class="cd-num" data-cd="h">13</span><span class="cd-label">hours</span></div>
+            <span class="cd-colon" aria-hidden="true">:</span>
+            <div class="cd-unit"><span class="cd-num" data-cd="m">45</span><span class="cd-label">minutes</span></div>
+            <span class="cd-colon" aria-hidden="true">:</span>
+            <div class="cd-unit"><span class="cd-num" data-cd="s">12</span><span class="cd-label">seconds</span></div>
+          </div>
+          <p class="cd-when">Saturday 28 November 2026, 8:00 PM Montreal <span>Sunday 29 November, 6:30 AM in India</span></p>
+          <div class="cd-cta">
+            <a href="#" data-cta class="cta"><span>Claim My Spot Before It’s Full</span><span class="cta-arrow" aria-hidden="true"><svg width="18" height="18"><use href="#i-arrow"/></svg></span></a>
+          </div>
+          <p class="cd-small">Registration closes when we hit capacity or 24 hours before the workshop!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>© 2026 Frenchify with Vyom Inc. All rights reserved.</p>
+    <nav aria-label="Legal">
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Refund Policy</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</div>
+
+<script src="../assets/preview.js" defer></script>
+</body>
+</html>

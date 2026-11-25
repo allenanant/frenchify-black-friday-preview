@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#05060A">
+  <title>Option 1 · Black Friday preview · Frenchify</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Sora:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #05060A;
+      --ink: #F7F8FA;
+      --blue: #2563EB;
+      --blue-hover: #1E55D4;
+      --gold: #D9B254;
+      --gold-2: #E2C171;
+      --navy: #193357;
+      --stub: #0D111B;
+      --i88: rgba(247, 248, 250, 0.88);
+      --i82: rgba(247, 248, 250, 0.82);
+      --i78: rgba(247, 248, 250, 0.78);
+      --i75: rgba(247, 248, 250, 0.75);
+      --i72: rgba(247, 248, 250, 0.72);
+      --i70: rgba(247, 248, 250, 0.70);
+      --i65: rgba(247, 248, 250, 0.65);
+      --i60: rgba(247, 248, 250, 0.60);
+      --i55: rgba(247, 248, 250, 0.55);
+      --i50: rgba(247, 248, 250, 0.50);
+      --line: rgba(247, 248, 250, 0.12);
+      --line-2: rgba(247, 248, 250, 0.14);
+      --line-3: rgba(247, 248, 250, 0.16);
+      --sora: "Sora", system-ui, sans-serif;
+      --inter: "Inter", system-ui, sans-serif;
+      --g: 40px;      /* side gutter */
+      --s: 1;         /* light scale */
+      --hero-blue-x: calc(50% - 470px);
+      --hero-blue-y: 80px;
+      --hero-blue-r: 780px 700px;
+      --hero-gold-x: calc(50% + 590px);
+      --hero-gold-y: 870px;
+      --hero-gold-r: 640px 620px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font: 400 16px/1.6 var(--inter);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background:
+        radial-gradient(var(--hero-blue-r) at var(--hero-blue-x) var(--hero-blue-y),
+          rgba(37, 99, 235, 0.58), rgba(37, 99, 235, 0.44) 30%, rgba(37, 99, 235, 0.2) 58%, rgba(37, 99, 235, 0.06) 82%, rgba(37, 99, 235, 0) 100%),
+        radial-gradient(var(--hero-gold-r) at var(--hero-gold-x) var(--hero-gold-y),
+          rgba(217, 178, 84, 0.4), rgba(217, 178, 84, 0.28) 32%, rgba(217, 178, 84, 0.12) 62%, rgba(217, 178, 84, 0.03) 85%, rgba(217, 178, 84, 0) 100%),
+        var(--bg);
+    }
+    /* Film grain: one fixed layer, under the content */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: url(../assets/grain.svg) repeat;
+      background-size: 240px 240px;
+      opacity: 0.3;
+    }
+    img, svg { display: block; }
+    img { max-width: 100%; }
+    h1, h2, h3, p, ol, ul, figure { margin: 0; }
+    ol, ul { padding: 0; list-style: none; }
+    a { color: inherit; }
+    button { font: inherit; color: inherit; }
+
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+    .skip {
+      position: absolute; left: 16px; top: -60px; z-index: 70;
+      padding: 12px 16px; border-radius: 12px; background: var(--ink); color: var(--bg);
+      font-weight: 600; text-decoration: none;
+    }
+    .skip:focus-visible { top: 16px; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+
+    .page { position: relative; z-index: 1; isolation: isolate; overflow-x: clip; }
+    .wrap { width: min(1200px, 100% - 2 * var(--g)); margin-inline: auto; }
+
+    /* Soft section lights (radial gradients, no blur filter) */
+    .l1::before, .l2::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+      left: calc(50% + (var(--cx) - var(--rx)) * var(--s));
+      top: calc(var(--cy) - var(--ry) * var(--s));
+      width: calc(var(--rx) * 2 * var(--s));
+      height: calc(var(--ry) * 2 * var(--s));
+      background: radial-gradient(closest-side,
+        rgb(var(--c) / var(--a)),
+        rgb(var(--c) / calc(var(--a) * 0.62)) 40%,
+        rgb(var(--c) / calc(var(--a) * 0.2)) 72%,
+        rgb(var(--c) / 0) 100%);
+    }
+
+    /* ---------- Type ---------- */
+    .h2 {
+      --fs: 64;
+      font-family: var(--sora);
+      font-weight: 600;
+      font-size: clamp(var(--fs-min, 32px), calc(var(--fs) * 0.3px + var(--fs) * 0.7 * 100vw / 1440), calc(var(--fs) * 1px));
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+    .sub { font-size: 19px; line-height: 30px; color: var(--i70); }
+    .lead-20 { font-size: 20px; line-height: 31px; color: var(--i70); }
+    .eyebrow {
+      font: 600 13px/16px var(--inter);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 62px;
+      padding: 20px 30px;
+      border-radius: 999px;
+      background: var(--blue);
+      box-shadow: inset 0 1px 0 rgba(247, 248, 250, 0.22);
+      color: var(--ink);
+      font: 600 17px/22px var(--inter);
+      text-decoration: none;
+      transition: background-color 160ms ease-out;
+    }
+    .btn svg { flex-shrink: 0; transition: transform 160ms ease-out; }
+    .btn:hover { background: var(--blue-hover); }
+    .btn:hover svg { transform: translateX(2px); }
+
+    /* ---------- Header / nav ---------- */
+    .site-header { position: relative; padding-top: 28px; }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 12px 12px 24px;
+      border-radius: 999px;
+      background: rgba(247, 248, 250, 0.06);
+      border: 1px solid var(--line);
+      -webkit-backdrop-filter: blur(24px);
+      backdrop-filter: blur(24px);
+    }
+    .nav__logo { width: 107px; height: 30px; object-fit: contain; flex-shrink: 0; }
+    .nav__when { display: flex; align-items: center; gap: 14px; }
+    .nav__label { font: 500 13px/16px var(--inter); letter-spacing: 0.02em; color: var(--i60); }
+    .nav__date { font: 600 14px/18px var(--sora); color: var(--ink); }
+    .nav__cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: var(--ink);
+      font: 600 14px/18px var(--inter);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 160ms ease-out;
+    }
+    .nav__cta:hover { background: var(--blue-hover); }
+
+    /* ---------- Hero ---------- */
+    .hero { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .hero__copy {
+      width: min(1280px, 100% - 2 * var(--g));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      padding-top: 56px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px 8px 8px;
+      border-radius: 999px;
+      background: rgba(247, 248, 250, 0.06);
+      border: 1px solid var(--line-2);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      text-align: left;
+    }
+    .pill__tag {
+      flex-shrink: 0;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--bg);
+      font: 700 12px/16px var(--inter);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pill__text { font: 500 14px/18px var(--inter); color: var(--i82); }
+    .hero h1 {
+      font-family: var(--sora);
+      font-weight: 600;
+      font-size: clamp(36px, calc(4.4vw + 9px), 72px);
+      line-height: 1.083;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+    }
+    .hero__lead { max-width: 640px; text-wrap: pretty; font-size: 20px; line-height: 31px; color: var(--i72); }
+    .cta-row { display: flex; align-items: center; gap: 14px; padding-top: 10px; }
+    .price { display: flex; align-items: center; gap: 10px; padding-inline: 6px; font: 500 16px/20px var(--inter); }
+    .price s { color: var(--i50); text-decoration-thickness: 1px; }
+    .price strong { color: var(--gold); font-weight: 700; }
+    .when { font: 500 15px/22px var(--inter); color: var(--i70); text-wrap: balance; }
+    .when .sep { color: rgba(247, 248, 250, 0.35); }
+
+    .stage {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
+    }
+    .frame {
+      width: min(1042px, 100% - 2 * var(--g));
+      padding: 10px;
+      border-radius: 32px;
+      background: rgba(247, 248, 250, 0.07);
+      border: 1px solid var(--line-3);
+      box-shadow: 0 40px 120px -30px rgba(2, 3, 6, 0.8);
+      -webkit-backdrop-filter: blur(24px);
+      backdrop-filter: blur(24px);
+    }
+    .video {
+      position: relative;
+      display: block;
+      width: 100%;
+      aspect-ratio: 1020 / 574;
+      padding: 0;
+      border: 0;
+      border-radius: 23px;
+      overflow: hidden;
+      background: var(--stub);
+      cursor: pointer;
+    }
+    .video > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 96px;
+      height: 96px;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(247, 248, 250, 0.22);
+      border: 1px solid rgba(247, 248, 250, 0.45);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      transition: background-color 160ms ease-out;
+    }
+    .video:hover .play { background: rgba(247, 248, 250, 0.34); }
+    .video:focus-visible { outline-offset: 4px; }
+    .chip {
+      position: absolute;
+      left: max(12px, calc(50% - 600px));
+      bottom: 106px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 22px 14px 14px;
+      border-radius: 22px;
+      background: var(--navy);
+      border: 1px solid var(--line-2);
+      box-shadow: 0 24px 60px -20px rgba(2, 3, 6, 0.7);
+      text-align: left;
+    }
+    .chip img {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      border-radius: 999px;
+      border: 2px solid rgba(217, 178, 84, 0.8);
+      object-fit: cover;
+    }
+    .chip__txt { display: flex; flex-direction: column; gap: 3px; }
+    .chip__k { font: 600 12px/16px var(--inter); letter-spacing: 0.08em; text-transform: uppercase; color: var(--i60); }
+    .chip__name { font: 600 18px/22px var(--sora); letter-spacing: -0.01em; color: var(--ink); }
+    .chip__meta { font: 400 13px/16px var(--inter); color: var(--i70); }
+
+    /* ---------- S1 · How to get the offer ---------- */
+    .s1 { position: relative; padding: 140px 0 70px; --cx: 300px; --cy: 57%; --rx: 410px; --ry: 360px; --c: 217 178 84; --a: 0.18; }
+    .s1__grid { display: flex; align-items: flex-start; gap: 104px; }
+    .s1__head { flex: 0 0 432px; display: flex; flex-direction: column; gap: 20px; padding-top: 6px; }
+    .s1__head .eyebrow { color: var(--gold); }
+    .s1__head .h2 { --fs: 52; line-height: 1.115; letter-spacing: -0.035em; }
+    .s1__head .sub { padding-top: 4px; }
+    .steps { flex: 1 1 auto; min-width: 0; }
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      padding-block: 34px;
+      border-top: 1px solid var(--line);
+    }
+    .steps li:last-child { border-bottom: 1px solid var(--line); }
+    .steps__n {
+      flex: 0 0 112px;
+      font: 600 64px/60px var(--sora);
+      letter-spacing: -0.04em;
+      color: var(--gold);
+    }
+    .steps__body { display: flex; flex-direction: column; gap: 8px; padding-top: 4px; }
+    .steps h3 { font: 600 26px/32px var(--sora); letter-spacing: -0.02em; color: var(--ink); }
+    .steps p { font-size: 17px; line-height: 27px; color: var(--i65); }
+
+    /* ---------- S2 · Pain ---------- */
+    .s2 { position: relative; padding: 90px 0 70px; --cx: -560px; --cy: 30%; --rx: 460px; --ry: 370px; --c: 74 91 122; --a: 0.2; }
+    .s2__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+    .s2__head .h2 { flex: 0 1 760px; }
+    .s2__head .sub { flex: 0 0 360px; padding-bottom: 6px; }
+    .stair { display: flex; flex-direction: column; gap: 20px; margin-top: 88px; }
+    .stair li { width: 43.333%; display: flex; flex-direction: column; gap: 14px; padding-top: 28px; border-top: 1px solid var(--line-3); }
+    .stair li:nth-child(2) { margin-left: 28.333%; }
+    .stair li:nth-child(3) { margin-left: 56.667%; }
+    .stair__t { display: flex; align-items: baseline; gap: 18px; }
+    .stair__n { flex: 0 0 20px; font: 600 14px/18px var(--inter); letter-spacing: 0.04em; color: var(--i50); }
+    .stair h3 { font: 600 32px/38px var(--sora); letter-spacing: -0.025em; color: var(--ink); }
+    .stair p { padding-left: 38px; font-size: 17px; line-height: 27px; color: var(--i65); }
+
+    /* ---------- S3 · Solution ---------- */
+    .s3 { position: relative; padding: 70px 0 80px; --cx: 420px; --cy: 67.5%; --rx: 470px; --ry: 430px; --c: 37 99 235; --a: 0.3; }
+    .s3__head { max-width: 840px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
+    .s3__head .lead-20 { max-width: 600px; }
+    .split { display: flex; align-items: center; justify-content: space-between; gap: 40px; margin-top: 80px; }
+    .benefits { flex: 0 1 590px; display: flex; flex-direction: column; gap: 36px; }
+    .benefits h3 { font: 600 24px/32px var(--sora); letter-spacing: -0.02em; color: var(--ink); }
+    .benefits ul { display: flex; flex-direction: column; gap: 30px; }
+    .benefits li { display: flex; align-items: flex-start; gap: 18px; }
+    .benefits__icon { flex: 0 0 24px; height: 28px; display: flex; align-items: center; }
+    .benefits__txt { display: flex; flex-direction: column; gap: 4px; }
+    .benefits strong { font: 600 19px/28px var(--inter); color: var(--ink); }
+    .benefits__txt span { font-size: 17px; line-height: 26px; color: var(--i65); }
+    .panel {
+      position: relative;
+      flex: 0 1 540px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding: 48px 52px 52px;
+      border-radius: 28px;
+      background: var(--navy);
+      border: 1px solid rgba(247, 248, 250, 0.1);
+      overflow: hidden;
+    }
+    .grainy::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: url(../assets/grain.svg) repeat;
+      background-size: 240px 240px;
+      opacity: var(--grain, 0.14);
+    }
+    .panel > * { position: relative; }
+    .panel h3 { font: 600 22px/30px var(--sora); letter-spacing: -0.02em; color: var(--ink); }
+    .panel__nums { font: 300 38px/56px var(--sora); letter-spacing: -0.03em; color: var(--i60); }
+    .panel__nums b { font-weight: 700; color: var(--ink); }
+
+    /* ---------- S4 · Wall of Excellence ---------- */
+    .s4 { position: relative; padding: 70px 0 60px; --cx: 60px; --cy: 53%; --rx: 810px; --ry: 210px; --c: 247 248 250; --a: 0.08; }
+    .s4__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+    .s4__aside { flex: 0 0 420px; display: flex; flex-direction: column; gap: 10px; padding-bottom: 4px; }
+    .s4__aside strong { font-size: 19px; line-height: 30px; font-weight: 700; color: var(--ink); }
+    .rail-block { display: flex; flex-direction: column; gap: 18px; margin-top: 56px; }
+    .rail {
+      --pad: max(var(--g), calc((100% - 1200px) / 2));
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: var(--pad);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(247, 248, 250, 0.22) transparent;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 6px;
+    }
+    .rail:focus-visible { outline-offset: -2px; border-radius: 16px; }
+    .rail ul { display: flex; gap: 12px; width: max-content; padding-inline: var(--pad); }
+    .rail li {
+      flex: 0 0 auto;
+      width: 216px;
+      height: 181px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--ink);
+      border: 1px solid rgba(247, 248, 250, 0.15);
+      scroll-snap-align: start;
+    }
+    .rail li img { width: 100%; height: 100%; object-fit: cover; }
+    .rail li.more {
+      width: 168px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(247, 248, 250, 0.04);
+      border-color: var(--line-3);
+      font: 600 22px/28px var(--sora);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .rail-hint { font-size: 15px; line-height: 22px; color: var(--i55); }
+    .s4__cta { margin-top: 64px; }
+
+    /* ---------- S5 · Workshop steps ---------- */
+    .s5 { position: relative; padding: 70px 0 80px; --cx: 0px; --cy: 66%; --rx: 700px; --ry: 230px; --c: 37 99 235; --a: 0.34; }
+    .s5__head { display: flex; flex-direction: column; gap: 22px; }
+    .s5__head .h2 { max-width: 820px; }
+    .s5__head .lead-20 { max-width: 620px; }
+    .timeline { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; margin-top: 84px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 43px;
+      height: 1px;
+      background: rgba(247, 248, 250, 0.3);
+    }
+    .timeline li { position: relative; display: flex; flex-direction: column; }
+    .timeline__k { font: 600 13px/18px var(--inter); letter-spacing: 0.12em; text-transform: uppercase; color: var(--i60); }
+    .timeline__dot { height: 50px; display: flex; align-items: center; }
+    .timeline__dot::before {
+      content: "";
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: var(--ink);
+      border: 5px solid var(--bg);
+    }
+    .timeline__body { display: flex; flex-direction: column; gap: 10px; padding-top: 12px; }
+    .timeline h3 { font: 600 24px/30px var(--sora); letter-spacing: -0.02em; color: var(--ink); }
+    .timeline p { font-size: 17px; line-height: 27px; color: var(--i65); }
+
+    /* ---------- S6 · Meet Vyom ---------- */
+    .s6 { position: relative; padding: 80px 0 70px; --cx: -310px; --cy: 42%; --rx: 360px; --ry: 340px; --c: 217 178 84; --a: 0.2; }
+    .s6__grid { display: flex; align-items: center; gap: 80px; }
+    .photo { position: relative; flex: 0 0 min(500px, 42%); aspect-ratio: 500 / 540; }
+    .photo__plate { position: absolute; left: 8%; top: 0; width: 92%; height: 92.593%; border-radius: 28px; background: var(--navy); }
+    .photo__frame {
+      position: absolute;
+      left: 0;
+      top: 7.407%;
+      width: 92%;
+      height: 92.593%;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .photo__frame img {
+      position: absolute;
+      left: -15.652%;
+      top: -3.6%;
+      width: 132.609%;
+      height: 111.6%;
+      max-width: none;
+      object-fit: cover;
+    }
+    .s6__text { flex: 1 1 0; min-width: 0; }
+    .s6__intro { display: flex; flex-direction: column; gap: 22px; }
+    .s6__intro .h2 { --fs: 54; letter-spacing: -0.04em; }
+    .story { display: flex; flex-direction: column; gap: 18px; padding-top: 44px; }
+    .story .eyebrow { color: var(--i60); }
+    .story p:not(.eyebrow) { font-size: 17px; line-height: 28px; color: var(--i75); }
+    .story hr { width: 100%; height: 1px; margin: 0; border: 0; background: var(--line); }
+
+    /* ---------- S7 · Includes ticket ---------- */
+    .s7 { position: relative; padding: 60px 0 80px; --cx: 430px; --cy: 37%; --rx: 330px; --ry: 300px; --c: 217 178 84; --a: 0.3; }
+    .ticket { display: flex; border-radius: 32px; border: 1px solid var(--line); overflow: hidden; }
+    .includes {
+      position: relative;
+      flex: 0 0 63.333%;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+      padding: 60px 56px 64px 60px;
+      background: var(--navy);
+      --grain: 0.14;
+    }
+    .includes > * { position: relative; }
+    .includes .h2 { --fs: 44; --fs-min: 30px; line-height: 1.136; letter-spacing: -0.035em; }
+    .includes ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; row-gap: 30px; }
+    .includes li { display: flex; align-items: flex-start; gap: 14px; }
+    .check {
+      flex: 0 0 22px;
+      height: 22px;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .includes__txt { display: flex; flex-direction: column; gap: 4px; }
+    .includes strong { font: 600 17px/24px var(--inter); color: var(--ink); }
+    .includes__txt span { font-size: 16px; line-height: 24px; color: var(--i75); }
+    .stub {
+      position: relative;
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+      padding: 56px 48px 56px 52px;
+      background: var(--stub);
+      border-left: 1px dashed rgba(247, 248, 250, 0.28);
+      --grain: 0.2;
+    }
+    .stub::after {
+      content: "";
+      position: absolute;
+      left: -50px;
+      top: 30px;
+      width: 480px;
+      height: 400px;
+      pointer-events: none;
+      background: radial-gradient(closest-side, rgba(217, 178, 84, 0.2), rgba(217, 178, 84, 0.12) 40%, rgba(217, 178, 84, 0.04) 72%, rgba(217, 178, 84, 0));
+    }
+    .stub > * { position: relative; z-index: 1; }
+    .stub__reg { font-size: 17px; line-height: 26px; color: var(--i70); }
+    .stub__reg s { text-decoration-thickness: 1px; }
+    .stub__price { display: flex; flex-direction: column; gap: 6px; }
+    .stub__k { font: 500 17px/24px var(--inter); color: var(--ink); }
+    .stub__free { font: 700 96px/96px var(--sora); letter-spacing: -0.05em; color: var(--gold); }
+    .stub__bonus { font: 600 18px/26px var(--inter); color: var(--ink); }
+    .stub__note { padding-top: 18px; border-top: 1px solid var(--line); font: 600 16px/24px var(--inter); color: var(--gold); }
+    .stub .btn { width: 100%; margin-top: 4px; }
+
+    /* ---------- S8 · Student stories ---------- */
+    .s8 { position: relative; padding: 70px 0; --c: 37 99 235; --a: 0.4; --cx: -330px; --cy: 63%; --rx: 350px; --ry: 330px; }
+    .s8::after { --c: 58 95 150; --a: 0.5; --cx: 410px; --cy: 52%; --rx: 380px; --ry: 360px; }
+    .s8__head { max-width: 1000px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+    .s8__head .h2 { --fs: 56; }
+    .s8__head .lead-20 { max-width: 600px; }
+    .yt {
+      width: min(880px, 100%);
+      margin: 60px auto 0;
+      border-radius: 24px;
+      border: 1px solid var(--line-3);
+      aspect-ratio: 880 / 495;
+    }
+    .yt:not([data-playing])::after { content: ""; position: absolute; inset: 0; background: rgba(5, 6, 10, 0.18); pointer-events: none; }
+    .yt .play { z-index: 1; width: 92px; height: 92px; }
+
+    /* ---------- S9 · FAQ ---------- */
+    .s9 { position: relative; padding: 70px 0; }
+    .s9__grid { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; }
+    .s9__grid .h2 { --fs: 56; flex: 0 0 380px; }
+    .faq { flex: 0 1 740px; min-width: 0; border-top: 1px solid var(--line-2); }
+    .faq details { border-bottom: 1px solid var(--line-2); }
+    .faq summary {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 30px 0;
+      cursor: pointer;
+      list-style: none;
+      font: 600 22px/30px var(--sora);
+      letter-spacing: -0.015em;
+      color: var(--i88);
+      transition: color 160ms ease-out;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary:hover, .faq details[open] summary { color: var(--ink); }
+    .faq summary:focus-visible { outline-offset: 4px; border-radius: 6px; }
+    .chev { flex: 0 0 24px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--i55); transition: transform 180ms ease-out, color 160ms ease-out; }
+    .faq details[open] .chev { transform: rotate(180deg); color: var(--ink); }
+    .faq details[open] summary { padding-bottom: 14px; }
+    .faq__a { padding: 0 64px 34px 0; font-size: 17px; line-height: 28px; color: var(--i70); }
+
+    /* ---------- S10 · Final decision ---------- */
+    .s10 {
+      position: relative;
+      padding: 90px 0 130px;
+      --c: 37 99 235; --a: 0.25; --cx: -480px; --cy: 23%; --rx: 520px; --ry: 420px;
+    }
+    .s10::after { --c: 217 178 84; --a: 0.35; --cx: 0px; --cy: 64.5%; --rx: 510px; --ry: 340px; }
+    .s10__in { display: flex; flex-direction: column; align-items: center; gap: 56px; text-align: center; }
+    .s10 .h2 { --fs: 68; --fs-min: 34px; max-width: 940px; line-height: 1.088; }
+    .options { width: min(1040px, 100%); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; text-align: left; }
+    .option { display: flex; flex-direction: column; gap: 12px; padding: 32px 36px 34px; border-radius: 22px; border: 1px solid var(--line); }
+    .option .eyebrow { color: var(--i50); }
+    .option p:not(.eyebrow) { font-size: 18px; line-height: 29px; color: var(--i60); }
+    .option--pick { background: rgba(217, 178, 84, 0.08); border-color: rgba(217, 178, 84, 0.6); }
+    .option--pick .eyebrow { color: var(--gold-2); }
+    .option--pick p:not(.eyebrow) { font-weight: 500; color: var(--ink); }
+    .s10__note { max-width: 660px; font-size: 19px; line-height: 30px; color: var(--i78); }
+    .s10__note b { font-weight: 600; color: var(--ink); }
+    .countdown {
+      width: min(720px, 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      padding: 32px 40px 30px;
+      border-radius: 28px;
+      background: rgba(247, 248, 250, 0.06);
+      border: 1px solid var(--line-1, rgba(247, 248, 250, 0.15));
+      -webkit-backdrop-filter: blur(24px);
+      backdrop-filter: blur(24px);
+    }
+    .countdown .eyebrow { color: var(--i65); }
+    .units { display: flex; align-items: flex-start; justify-content: center; gap: 8px; }
+    .unit { flex: 0 0 112px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .unit__n { font: 600 60px/64px var(--sora); letter-spacing: -0.03em; color: var(--gold); font-variant-numeric: tabular-nums; }
+    .unit__k { font: 600 13px/16px var(--inter); letter-spacing: 0.08em; text-transform: uppercase; color: var(--i60); }
+    .colon { font: 300 44px/64px var(--sora); color: rgba(247, 248, 250, 0.3); }
+    .countdown hr { align-self: stretch; height: 1px; margin: 0; border: 0; background: var(--line); }
+    .s10__cta { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .s10__close { max-width: 620px; font-size: 15px; line-height: 22px; color: var(--i60); }
+
+    /* ---------- Footer ---------- */
+    .site-footer { position: relative; padding-bottom: 56px; }
+    .site-footer .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 36px;
+      border-top: 1px solid var(--line);
+    }
+    .site-footer p { font-size: 14px; line-height: 20px; color: var(--i60); }
+    .legal { display: flex; align-items: center; gap: 32px; }
+    .legal a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font: 500 14px/20px var(--inter);
+      color: var(--i70);
+      text-decoration: none;
+      transition: color 160ms ease-out;
+    }
+    .legal a:hover { color: var(--ink); }
+    .site-footer .wrap { margin-top: 0; }
+
+    /* ================= Responsive ================= */
+    @media (max-width: 1180px) {
+      .s1__grid { gap: 64px; }
+      .s1__head { flex-basis: 380px; }
+      .steps__n { flex-basis: 88px; font-size: 54px; }
+      .steps li { gap: 28px; }
+      .s2__head .sub { flex-basis: 320px; }
+      .stair li { width: 50%; }
+      .stair li:nth-child(2) { margin-left: 25%; }
+      .stair li:nth-child(3) { margin-left: 50%; }
+      .s6__grid { gap: 56px; }
+      .includes { padding: 52px 44px 56px; }
+      .stub { padding: 48px 40px; }
+      .stub__free { font-size: 80px; line-height: 84px; }
+      .s9__grid .h2 { flex-basis: 300px; }
+    }
+
+    /* Tablet and phone: one column */
+    @media (max-width: 900px) {
+      :root { --g: 32px; --s: 0.75; }
+      .nav__label { display: none; }
+      .chip { position: static; margin-top: 16px; }
+      .s1, .s2, .s3, .s4, .s5, .s6, .s7, .s8, .s9 { padding: 48px 0; }
+      .s1 { padding-top: 96px; }
+      .s10 { padding: 56px 0 96px; }
+      .s1__grid { flex-direction: column; gap: 40px; }
+      .s1__head { flex-basis: auto; }
+      .steps { width: 100%; }
+      .s2__head { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .s2__head .h2, .s2__head .sub { flex: 0 0 auto; }
+      .stair { margin-top: 48px; gap: 32px; }
+      .stair li, .stair li:nth-child(2), .stair li:nth-child(3) { width: 100%; margin-left: 0; }
+      .split { flex-direction: column; align-items: stretch; gap: 48px; margin-top: 56px; }
+      .benefits, .panel { flex: 0 0 auto; }
+      .s4__head { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .s4__aside { flex: 0 0 auto; }
+      .rail-block { margin-top: 40px; }
+      .s4__cta { margin-top: 40px; }
+      .timeline { grid-template-columns: 1fr; gap: 0; margin-top: 48px; }
+      .timeline::before { left: 8px; right: auto; top: 12px; bottom: 12px; width: 1px; height: auto; }
+      .timeline li {
+        display: grid;
+        grid-template-columns: 17px 1fr;
+        column-gap: 20px;
+        padding-bottom: 36px;
+      }
+      .timeline li:last-child { padding-bottom: 0; }
+      .timeline__dot { grid-column: 1; grid-row: 1; height: 18px; }
+      .timeline__k { grid-column: 2; grid-row: 1; }
+      .timeline__body { grid-column: 2; grid-row: 2; padding-top: 10px; }
+      .s6__grid { flex-direction: column; align-items: stretch; gap: 48px; }
+      .photo { flex: 0 0 auto; width: min(100%, 420px); margin-inline: auto; }
+      .story { padding-top: 32px; }
+      .ticket { flex-direction: column; }
+      .includes { flex: 0 0 auto; }
+      .stub { flex: 0 0 auto; border-left: 0; border-top: 1px dashed rgba(247, 248, 250, 0.28); }
+      .stub::after { left: 50%; margin-left: -240px; }
+      .yt { margin-top: 40px; }
+      .s9__grid { flex-direction: column; gap: 32px; }
+      .s9__grid .h2 { flex: 0 0 auto; }
+      .faq { flex: 0 0 auto; width: 100%; }
+      .s10__in { gap: 40px; }
+      .site-footer .wrap { flex-direction: column-reverse; align-items: flex-start; gap: 12px; padding-top: 24px; }
+      .legal { gap: 0 24px; flex-wrap: wrap; }
+    }
+
+    /* Phone */
+    @media (max-width: 600px) {
+      :root {
+        --g: 16px;
+        --s: 0.55;
+        --hero-blue-x: 0%;
+        --hero-blue-y: 40px;
+        --hero-blue-r: 420px 460px;
+        --hero-gold-x: 105%;
+        --hero-gold-y: 760px;
+        --hero-gold-r: 340px 420px;
+      }
+      body { font-size: 16px; }
+      .site-header { padding-top: 12px; }
+      .nav { padding: 6px 6px 6px 16px; }
+      .nav__logo { width: 96px; height: 27px; }
+      .nav__when { display: none; }
+      .nav__cta { padding: 10px 16px; font-size: 14px; }
+      .hero__copy { padding-top: 28px; gap: 18px; }
+      .pill { gap: 10px; padding: 6px 12px 6px 6px; border-radius: 18px; }
+      .pill__tag { font-size: 11px; letter-spacing: 0.06em; padding: 5px 8px; }
+      .pill__text { font-size: 13px; line-height: 17px; }
+      .hero h1 { font-size: 36px; line-height: 1.1; letter-spacing: -0.035em; text-wrap: balance; }
+      .hero h1 br { display: none; }
+      .hero__lead { font-size: 17px; line-height: 26px; }
+      .cta-row { flex-direction: column; align-items: stretch; gap: 12px; width: 100%; padding-top: 4px; }
+      .cta-row .btn { width: 100%; }
+      .price { justify-content: center; }
+      .when { font-size: 14px; line-height: 21px; }
+      .when .sep { display: block; height: 0; overflow: hidden; }
+      .stage { padding-top: 36px; }
+      .frame { padding: 6px; border-radius: 20px; }
+      .video { border-radius: 14px; }
+      .play, .yt .play { width: 72px; height: 72px; }
+      .play svg { width: 24px; height: 24px; }
+      .chip { margin-top: 14px; padding: 10px 18px 10px 10px; gap: 12px; border-radius: 18px; }
+      .chip img { width: 46px; height: 46px; }
+
+      .s1, .s2, .s3, .s4, .s5, .s6, .s7, .s8, .s9 { padding: 40px 0; }
+      .s1 { padding-top: 80px; }
+      .s10 { padding: 48px 0 112px; }
+      .sub, .lead-20 { font-size: 17px; line-height: 27px; }
+      .s1__grid { gap: 28px; }
+      .s1__head { gap: 14px; }
+      .steps li { gap: 18px; padding-block: 24px; }
+      .steps__n { flex-basis: 56px; font-size: 40px; line-height: 40px; }
+      .steps__body { padding-top: 2px; }
+      .steps h3 { font-size: 21px; line-height: 27px; }
+      .steps p { font-size: 16px; line-height: 25px; }
+      .stair { margin-top: 36px; gap: 28px; }
+      .stair li { padding-top: 22px; gap: 10px; }
+      .stair__t { gap: 12px; }
+      .stair h3 { font-size: 24px; line-height: 30px; }
+      .stair p { padding-left: 32px; font-size: 16px; line-height: 25px; }
+      .s3__head { gap: 16px; }
+      .split { margin-top: 40px; gap: 36px; }
+      .benefits { gap: 26px; }
+      .benefits h3 { font-size: 21px; line-height: 28px; }
+      .benefits ul { gap: 22px; }
+      .benefits li { gap: 14px; }
+      .benefits strong { font-size: 17px; line-height: 26px; }
+      .benefits__txt span { font-size: 16px; line-height: 24px; }
+      .panel { padding: 32px 24px 34px; gap: 20px; border-radius: 22px; }
+      .panel h3 { font-size: 19px; line-height: 26px; }
+      .panel__nums { font-size: 28px; line-height: 42px; }
+      .s4__aside strong { font-size: 17px; line-height: 27px; }
+      .rail-block { margin-top: 32px; gap: 14px; }
+      .rail li { width: 200px; height: 168px; }
+      .rail li.more { width: 150px; font-size: 19px; }
+      .rail-hint { font-size: 14px; }
+      .s4__cta { margin-top: 32px; }
+      .s4__cta .btn, .s10__cta .btn { width: 100%; }
+      .s5__head { gap: 16px; }
+      .timeline { margin-top: 36px; }
+      .timeline li { padding-bottom: 28px; column-gap: 16px; }
+      .timeline h3 { font-size: 21px; line-height: 27px; }
+      .timeline p { font-size: 16px; line-height: 25px; }
+      .s6__grid { gap: 36px; }
+      .photo { width: 100%; }
+      .photo__plate { border-radius: 22px; }
+      .photo__frame { border-radius: 18px; }
+      .s6__intro { gap: 16px; }
+      .story { padding-top: 28px; gap: 14px; }
+      .story p:not(.eyebrow) { font-size: 16px; line-height: 26px; }
+      .ticket { border-radius: 24px; }
+      .includes { padding: 32px 22px 36px; gap: 28px; }
+      .includes ul { grid-template-columns: 1fr; row-gap: 20px; }
+      .includes strong { font-size: 16px; }
+      .stub { padding: 32px 22px 28px; gap: 22px; }
+      .stub__free { font-size: 72px; line-height: 72px; }
+      .s8__head { gap: 16px; }
+      .yt { margin-top: 32px; border-radius: 18px; }
+      .s9__grid { gap: 20px; }
+      .faq summary { padding: 22px 0; font-size: 19px; line-height: 26px; gap: 16px; }
+      .chev { height: 26px; }
+      .faq details[open] summary { padding-bottom: 10px; }
+      .faq__a { padding: 0 0 24px; font-size: 16px; line-height: 26px; }
+      .s10__in { gap: 32px; }
+      .options { grid-template-columns: 1fr; gap: 14px; }
+      .option { padding: 24px 22px; gap: 10px; border-radius: 18px; }
+      .option p:not(.eyebrow) { font-size: 17px; line-height: 27px; }
+      .s10__note { font-size: 17px; line-height: 27px; }
+      .countdown { padding: 24px 14px 22px; gap: 16px; border-radius: 22px; }
+      .units { gap: 2px; }
+      .unit { flex: 1 1 0; min-width: 0; }
+      .unit__n { font-size: 40px; line-height: 46px; }
+      .unit__k { font-size: 12px; letter-spacing: 0.04em; }
+      .colon { flex: 0 0 auto; font-size: 30px; line-height: 46px; }
+      .countdown .when { font-size: 14px; }
+      .s10__cta { width: 100%; gap: 16px; }
+      .s10__close { font-size: 14px; line-height: 21px; }
+      .site-footer { padding-bottom: 96px; }
+      .site-footer p { font-size: 14px; }
+    }
+
+    /* Small phones (360px and below) */
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 33px; }
+      .unit__n { font-size: 36px; }
+      .colon { font-size: 26px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body data-option="1">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="site-header">
+      <nav class="nav wrap" aria-label="Main">
+        <img class="nav__logo" src="../assets/img/logo-light.webp" alt="Frenchify with Vyom Inc." width="107" height="30" fetchpriority="high">
+        <p class="nav__when">
+          <span class="nav__label">Next live session</span>
+          <span class="nav__date">Sat 28 Nov, 8:00 PM Montreal</span>
+        </p>
+        <a class="nav__cta" href="#" data-cta>Reserve My Free Spot</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="pill">
+            <span class="pill__tag">Black Friday</span>
+            <span class="pill__text">Free for Black Friday. Workshop guests get a special offer.</span>
+          </p>
+          <h1 id="hero-title">French for Canadian PR:<br> Live Assessment Workshop</h1>
+          <p class="hero__lead">Discover in 90 minutes if French is your fastest path to Canadian PR. Take a live assessment and get your personalized French learning strategy - completely free.</p>
+          <div class="cta-row">
+            <a class="btn" href="#" data-cta>
+              Reserve My Free Spot
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="m13 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <p class="price"><s>$19 CAD</s> <strong>Free today</strong></p>
+          </div>
+          <p class="when">Saturday 28 November, 8:00 PM Montreal <span class="sep" aria-hidden="true">·</span> Sunday 29 November, 6:30 AM in India</p>
+        </div>
+
+        <div class="stage">
+          <div class="frame">
+            <button type="button" class="video" data-video-wistia="giyksplji4">
+              <img src="../assets/img/vsl-poster.webp" alt="Vyom Sharma on a Montreal rooftop next to a Canadian flag" width="1280" height="720" fetchpriority="high" decoding="async">
+              <span class="play" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.6-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="#F7F8FA"/></svg>
+              </span>
+              <span class="sr-only">Play the workshop video</span>
+            </button>
+          </div>
+          <div class="chip">
+            <img src="../assets/img/vyom-face.webp" alt="Vyom Sharma, smiling" width="52" height="52" loading="lazy" decoding="async">
+            <p class="chip__txt">
+              <span class="chip__k">Hosted live by</span>
+              <span class="chip__name">Vyom Sharma</span>
+              <span class="chip__meta">Zero to CLB 7 in 8 months</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- S1 · How to get the offer -->
+      <section class="s1 l1" aria-labelledby="s1-title">
+        <div class="wrap s1__grid">
+          <div class="s1__head">
+            <p class="eyebrow">Black Friday 2026</p>
+            <h2 class="h2" id="s1-title">How to get the Black Friday offer</h2>
+            <p class="sub">Vyom shows the Black Friday offer live in the workshop. Only workshop guests get it.</p>
+          </div>
+          <ol class="steps">
+            <li>
+              <span class="steps__n" aria-hidden="true">01</span>
+              <div class="steps__body">
+                <h3>Reserve your free spot</h3>
+                <p>Complete the short form. The workshop is free.</p>
+              </div>
+            </li>
+            <li>
+              <span class="steps__n" aria-hidden="true">02</span>
+              <div class="steps__body">
+                <h3>Join the live workshop</h3>
+                <p>Sat 28 Nov, 8:00 PM, Montreal time. Join online from anywhere.</p>
+              </div>
+            </li>
+            <li>
+              <span class="steps__n" aria-hidden="true">03</span>
+              <div class="steps__body">
+                <h3>Get the Black Friday offer</h3>
+                <p>Vyom gives the offer to workshop guests in the live session.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- S2 · Pain -->
+      <section class="s2 l1" aria-labelledby="s2-title">
+        <div class="wrap">
+          <div class="s2__head">
+            <h2 class="h2" id="s2-title">Tired of Waiting in the Express Entry Pool?</h2>
+            <p class="sub">If you’re stuck with any of these problems, this workshop will show you a proven alternative.</p>
+          </div>
+          <ol class="stair">
+            <li>
+              <div class="stair__t"><span class="stair__n" aria-hidden="true">01</span><h3>CRS Score Isn’t Competitive</h3></div>
+              <p>Draws keep hitting 480+ and your score isn’t close. You’re watching months go by with no guarantee.</p>
+            </li>
+            <li>
+              <div class="stair__t"><span class="stair__n" aria-hidden="true">02</span><h3>Time is Running Out</h3></div>
+              <p>Your age points are decreasing, permits need renewal, and other options take years you don’t have.</p>
+            </li>
+            <li>
+              <div class="stair__t"><span class="stair__n" aria-hidden="true">03</span><h3>Opportunity Cost is Huge</h3></div>
+              <p>Every month you wait is lost Canadian income, career growth, and life progress.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- S3 · Solution -->
+      <section class="s3 l1" aria-labelledby="s3-title">
+        <div class="wrap">
+          <div class="s3__head">
+            <h2 class="h2" id="s3-title">What if French Could Change Everything?</h2>
+            <p class="lead-20">While thousands wait, smart candidates are using French to guarantee their PR invitation.</p>
+          </div>
+          <div class="split">
+            <div class="benefits">
+              <h3>Here’s what French can do for your application:</h3>
+              <ul>
+                <li>
+                  <span class="benefits__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 3v18h18" fill="none" stroke="rgba(247,248,250,.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="m19 9-5 5-4-4-3 3" fill="none" stroke="rgba(247,248,250,.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span class="benefits__txt"><strong>Add 50+ CRS points</strong><span>Guarantee your selection in the next draw</span></span>
+                </li>
+                <li>
+                  <span class="benefits__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6" fill="none" stroke="rgba(247,248,250,.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11" fill="none" stroke="rgba(247,248,250,.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span class="benefits__txt"><strong>Access special francophone draws</strong><span>With significantly lower cutoff scores</span></span>
+                </li>
+                <li>
+                  <span class="benefits__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" fill="none" stroke="rgba(247,248,250,.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 22v-7" fill="none" stroke="rgba(247,248,250,.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span class="benefits__txt"><strong>Qualify for dedicated streams</strong><span>In multiple provinces across Canada</span></span>
+                </li>
+                <li>
+                  <span class="benefits__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" fill="none" stroke="rgba(247,248,250,.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" fill="none" stroke="rgba(247,248,250,.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 21v-2a4 4 0 0 0-3-3.87" fill="none" stroke="rgba(247,248,250,.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="rgba(247,248,250,.7)" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span class="benefits__txt"><strong>Skip the competition</strong><span>Only 5% of candidates speak French</span></span>
+                </li>
+              </ul>
+            </div>
+            <div class="panel grainy">
+              <h3>The Numbers Don’t Lie:</h3>
+              <p class="panel__nums"><b>50+</b> CRS Points<br><b>8-12</b> Months to PR<br><b>95%</b> Less Competition<br><b>Proven</b> Pathway</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S4 · Wall of Excellence -->
+      <section class="s4 l1" aria-labelledby="s4-title">
+        <div class="wrap s4__head">
+          <h2 class="h2" id="s4-title">Wall of Excellence</h2>
+          <div class="s4__aside">
+            <p class="sub">Every screenshot below is a real TEF/TCF attestation from a Frenchify student.</p>
+            <p><strong>150+ Verified results</strong></p>
+          </div>
+        </div>
+        <div class="rail-block">
+          <div class="rail" role="group" aria-label="Real TEF/TCF results from Frenchify students" tabindex="0">
+            <ul>
+              <li><img src="../assets/img/result-1.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-2.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-3.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-4.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-5.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-6.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-7.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-8.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-9.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-10.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-11.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li><img src="../assets/img/result-12.webp" alt="" width="760" height="637" loading="lazy" decoding="async"></li>
+              <li class="more">and more...</li>
+            </ul>
+          </div>
+          <p class="wrap rail-hint">Swipe or scroll sideways to see the rest.</p>
+        </div>
+        <div class="wrap s4__cta">
+          <a class="btn" href="#" data-cta>
+            Reserve My Free Spot
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="m13 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- S5 · Workshop steps -->
+      <section class="s5 l1" aria-labelledby="s5-title">
+        <div class="wrap">
+          <div class="s5__head">
+            <h2 class="h2" id="s5-title">What Happens in This Live Assessment Workshop</h2>
+            <p class="lead-20">This isn’t a typical webinar. You’ll actively participate in a live assessment that determines your French PR potential.</p>
+          </div>
+          <ol class="timeline">
+            <li>
+              <span class="timeline__k">Step 01</span>
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <div class="timeline__body">
+                <h3>Personal Assessment</h3>
+                <p>Answer 20 strategic questions to predict your success and get instant results.</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline__k">Step 02</span>
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <div class="timeline__body">
+                <h3>Custom Roadmap</h3>
+                <p>Receive a personalized timeline and strategy to reach CLB 7 based on your score.</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline__k">Step 03</span>
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <div class="timeline__body">
+                <h3>ROI Analysis</h3>
+                <p>Understand the cost of waiting vs investing in French with a financial comparison.</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline__k">Step 04</span>
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <div class="timeline__body">
+                <h3>Live Q&amp;A Session</h3>
+                <p>Meet students who got their PR using French and ask them anything.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- S6 · Meet Vyom -->
+      <section class="s6 l1" aria-labelledby="s6-title">
+        <div class="wrap s6__grid">
+          <div class="photo">
+            <div class="photo__plate" aria-hidden="true"></div>
+            <div class="photo__frame">
+              <img src="../assets/img/vyom-portrait.webp" alt="Vyom Sharma smiling, in a winter jacket and a blue scarf" width="760" height="695" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="s6__text">
+            <div class="s6__intro">
+              <h2 class="h2" id="s6-title">Meet Vyom: He Actually Walked This Path</h2>
+              <p class="lead-20">This isn’t theory from someone who’s never done it. Vyom used this exact French strategy to get his own Canadian PR.</p>
+            </div>
+            <div class="story">
+              <p class="eyebrow">My Story</p>
+              <p>I arrived in Canada in December 2018. After my studies, I was stuck in the Express Entry pool with a CRS score that wasn’t competitive enough. In April 2021, I started learning French. In just 8 months, I went from zero to CLB 7 and added 62 points to my CRS score. I received my PR invitation in November 2022.</p>
+              <hr>
+              <p>The assessment in this workshop is what I wish I had when I started. Instead of guessing if French is right for you, you’ll know for certain.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S7 · Includes ticket -->
+      <section class="s7 l1" aria-labelledby="s7-title">
+        <div class="wrap ticket">
+          <div class="includes grainy">
+            <h2 class="h2" id="s7-title">Your Free Workshop Includes:</h2>
+            <ul>
+              <li><span class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#05060A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="includes__txt"><strong>Live 20-question Assessment</strong><span>Know your exact French PR potential</span></span></li>
+              <li><span class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#05060A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="includes__txt"><strong>Personalized Score Interpretation</strong><span>What your results mean for your timeline</span></span></li>
+              <li><span class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#05060A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="includes__txt"><strong>Custom Learning Roadmap</strong><span>Step-by-step plan based on YOUR situation</span></span></li>
+              <li><span class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#05060A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="includes__txt"><strong>Latest Immigration Updates</strong><span>Francophone opportunities most people miss</span></span></li>
+              <li><span class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#05060A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="includes__txt"><strong>ROI Analysis Worksheet</strong><span>Compare French investment vs waiting</span></span></li>
+              <li><span class="check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#05060A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="includes__txt"><strong>Exclusive Discount Codes</strong><span>Up to $100 CAD off programs</span></span></li>
+            </ul>
+          </div>
+          <div class="stub grainy">
+            <p class="stub__reg">Regular Workshop Price: <s>$19 CAD</s></p>
+            <div class="stub__price">
+              <p class="stub__k">Today’s Price:</p>
+              <p class="stub__free">FREE!</p>
+              <p class="stub__bonus">(Plus $497 in Bonuses)</p>
+            </div>
+            <p class="stub__note">Plus the Black Friday offer, only in the live workshop.</p>
+            <a class="btn" href="#" data-cta>
+              Reserve My Free Spot
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="m13 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- S8 · Student stories -->
+      <section class="s8 l1 l2" aria-labelledby="s8-title">
+        <div class="wrap">
+          <div class="s8__head">
+            <h2 class="h2" id="s8-title">Hear Directly From Our Students</h2>
+            <p class="lead-20">34 success stories from students who cleared CLB 5 and CLB 7. Play them straight through, right here.</p>
+          </div>
+          <button type="button" class="video yt" data-video-playlist="PLIX434KgUuaHsNre2lGTCXOTsROKjy6Z3">
+            <img src="../assets/img/yt-poster.webp" alt="A Frenchify student talks about clearing the TEF with C1 in speaking" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="play" aria-hidden="true">
+              <svg width="30" height="30" viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.6-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="#F7F8FA"/></svg>
+            </span>
+            <span class="sr-only">Play the student stories playlist</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- S9 · FAQ -->
+      <section class="s9" aria-labelledby="s9-title">
+        <div class="wrap s9__grid">
+          <h2 class="h2" id="s9-title">Still Have Doubts?</h2>
+          <div class="faq">
+            <details open>
+              <summary><span>“What is the Black Friday offer?”</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20"><path d="M10 13.2 3.6 6.8l1.4-1.4L10 10.4l5-5 1.4 1.4z" fill="currentColor"/></svg></span></summary>
+              <p class="faq__a">Vyom shows the offer live in the workshop. Only workshop guests get it. Reserve your free spot to see it.</p>
+            </details>
+            <details>
+              <summary><span>“I don’t have time to learn a new language”</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20"><path d="M10 13.2 3.6 6.8l1.4-1.4L10 10.4l5-5 1.4 1.4z" fill="currentColor"/></svg></span></summary>
+              <p class="faq__a">The assessment reveals if you have enough time based on your specific timeline. Many students reach CLB 7 in 8-12 months with just 2-3 hours daily.</p>
+            </details>
+            <details>
+              <summary><span>“French seems too difficult”</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20"><path d="M10 13.2 3.6 6.8l1.4-1.4L10 10.4l5-5 1.4 1.4z" fill="currentColor"/></svg></span></summary>
+              <p class="faq__a">French shares 60% vocabulary with English. The assessment measures your language learning aptitude - you might be surprised by your natural ability.</p>
+            </details>
+            <details>
+              <summary><span>“I’m not sure if it’s worth the investment”</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20"><path d="M10 13.2 3.6 6.8l1.4-1.4L10 10.4l5-5 1.4 1.4z" fill="currentColor"/></svg></span></summary>
+              <p class="faq__a">The workshop includes a complete ROI analysis. You’ll see the exact financial comparison between investing in French and the cost of waiting.</p>
+            </details>
+            <details>
+              <summary><span>“What if I fail the TEF/TCF exam?”</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 20 20"><path d="M10 13.2 3.6 6.8l1.4-1.4L10 10.4l5-5 1.4 1.4z" fill="currentColor"/></svg></span></summary>
+              <p class="faq__a">The assessment predicts your success probability. Plus, our students have an 80% first-attempt pass rate, and exams can be retaken.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- S10 · Final decision -->
+      <section class="s10 l1 l2" aria-labelledby="s10-title">
+        <div class="wrap s10__in">
+          <h2 class="h2" id="s10-title">Your Canadian PR Journey Starts with One Decision</h2>
+          <div class="options">
+            <div class="option">
+              <p class="eyebrow">Option 1</p>
+              <p>Keep waiting in Express Entry, hoping draws get easier (they won’t), watching opportunities pass by.</p>
+            </div>
+            <div class="option option--pick">
+              <p class="eyebrow">Option 2</p>
+              <p>Take 90 minutes to discover if French could be your PR game-changer and get a personalized roadmap.</p>
+            </div>
+          </div>
+          <p class="s10__note">This workshop, normally <b>$19 CAD</b>, is completely free today. The assessment alone is worth hundreds in consultation fees.</p>
+          <div class="countdown" data-countdown="2026-11-29T01:00:00Z" role="timer" aria-label="Time until the workshop starts">
+            <p class="eyebrow">Workshop starts in</p>
+            <div class="units">
+              <span class="unit"><span class="unit__n" data-cd="d">03</span><span class="unit__k">days</span></span>
+              <span class="colon" aria-hidden="true">:</span>
+              <span class="unit"><span class="unit__n" data-cd="h">13</span><span class="unit__k">hours</span></span>
+              <span class="colon" aria-hidden="true">:</span>
+              <span class="unit"><span class="unit__n" data-cd="m">45</span><span class="unit__k">minutes</span></span>
+              <span class="colon" aria-hidden="true">:</span>
+              <span class="unit"><span class="unit__n" data-cd="s">12</span><span class="unit__k">seconds</span></span>
+            </div>
+            <hr>
+            <p class="when">Saturday 28 November, 8:00 PM Montreal <span class="sep" aria-hidden="true">·</span> Sunday 29 November, 6:30 AM in India</p>
+          </div>
+          <div class="s10__cta">
+            <a class="btn" href="#" data-cta>
+              Claim My Spot Before It’s Full
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="m13 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <p class="s10__close">Registration closes when we hit capacity or 24 hours before the workshop!</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>© 2026 Frenchify with Vyom Inc. All rights reserved.</p>
+        <nav class="legal" aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Refund Policy</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+  <script src="../assets/preview.js" defer></script>
+</body>
+</html>
